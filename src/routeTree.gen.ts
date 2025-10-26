@@ -9,38 +9,225 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ConsultationRouteImport } from './routes/consultation'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as CoachingRouteImport } from './routes/coaching'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesMarketingConsultantRouteImport } from './routes/services/marketing-consultant'
+import { Route as ServicesCreativeDirectorRouteImport } from './routes/services/creative-director'
+import { Route as ServicesContentMarketerRouteImport } from './routes/services/content-marketer'
+import { Route as ServicesBusinessConsultantRouteImport } from './routes/services/business-consultant'
+import { Route as ServicesBrandStrategistRouteImport } from './routes/services/brand-strategist'
 
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultationRoute = ConsultationRouteImport.update({
+  id: '/consultation',
+  path: '/consultation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoachingRoute = CoachingRouteImport.update({
+  id: '/coaching',
+  path: '/coaching',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesMarketingConsultantRoute =
+  ServicesMarketingConsultantRouteImport.update({
+    id: '/marketing-consultant',
+    path: '/marketing-consultant',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCreativeDirectorRoute =
+  ServicesCreativeDirectorRouteImport.update({
+    id: '/creative-director',
+    path: '/creative-director',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesContentMarketerRoute = ServicesContentMarketerRouteImport.update({
+  id: '/content-marketer',
+  path: '/content-marketer',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesBusinessConsultantRoute =
+  ServicesBusinessConsultantRouteImport.update({
+    id: '/business-consultant',
+    path: '/business-consultant',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesBrandStrategistRoute = ServicesBrandStrategistRouteImport.update({
+  id: '/brand-strategist',
+  path: '/brand-strategist',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/coaching': typeof CoachingRoute
+  '/community': typeof CommunityRoute
+  '/consultation': typeof ConsultationRoute
+  '/contact': typeof ContactRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/brand-strategist': typeof ServicesBrandStrategistRoute
+  '/services/business-consultant': typeof ServicesBusinessConsultantRoute
+  '/services/content-marketer': typeof ServicesContentMarketerRoute
+  '/services/creative-director': typeof ServicesCreativeDirectorRoute
+  '/services/marketing-consultant': typeof ServicesMarketingConsultantRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/coaching': typeof CoachingRoute
+  '/community': typeof CommunityRoute
+  '/consultation': typeof ConsultationRoute
+  '/contact': typeof ContactRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/brand-strategist': typeof ServicesBrandStrategistRoute
+  '/services/business-consultant': typeof ServicesBusinessConsultantRoute
+  '/services/content-marketer': typeof ServicesContentMarketerRoute
+  '/services/creative-director': typeof ServicesCreativeDirectorRoute
+  '/services/marketing-consultant': typeof ServicesMarketingConsultantRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/coaching': typeof CoachingRoute
+  '/community': typeof CommunityRoute
+  '/consultation': typeof ConsultationRoute
+  '/contact': typeof ContactRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/brand-strategist': typeof ServicesBrandStrategistRoute
+  '/services/business-consultant': typeof ServicesBusinessConsultantRoute
+  '/services/content-marketer': typeof ServicesContentMarketerRoute
+  '/services/creative-director': typeof ServicesCreativeDirectorRoute
+  '/services/marketing-consultant': typeof ServicesMarketingConsultantRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/coaching'
+    | '/community'
+    | '/consultation'
+    | '/contact'
+    | '/services'
+    | '/services/brand-strategist'
+    | '/services/business-consultant'
+    | '/services/content-marketer'
+    | '/services/creative-director'
+    | '/services/marketing-consultant'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/coaching'
+    | '/community'
+    | '/consultation'
+    | '/contact'
+    | '/services'
+    | '/services/brand-strategist'
+    | '/services/business-consultant'
+    | '/services/content-marketer'
+    | '/services/creative-director'
+    | '/services/marketing-consultant'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/coaching'
+    | '/community'
+    | '/consultation'
+    | '/contact'
+    | '/services'
+    | '/services/brand-strategist'
+    | '/services/business-consultant'
+    | '/services/content-marketer'
+    | '/services/creative-director'
+    | '/services/marketing-consultant'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CoachingRoute: typeof CoachingRoute
+  CommunityRoute: typeof CommunityRoute
+  ConsultationRoute: typeof ConsultationRoute
+  ContactRoute: typeof ContactRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consultation': {
+      id: '/consultation'
+      path: '/consultation'
+      fullPath: '/consultation'
+      preLoaderRoute: typeof ConsultationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coaching': {
+      id: '/coaching'
+      path: '/coaching'
+      fullPath: '/coaching'
+      preLoaderRoute: typeof CoachingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +235,72 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/marketing-consultant': {
+      id: '/services/marketing-consultant'
+      path: '/marketing-consultant'
+      fullPath: '/services/marketing-consultant'
+      preLoaderRoute: typeof ServicesMarketingConsultantRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/creative-director': {
+      id: '/services/creative-director'
+      path: '/creative-director'
+      fullPath: '/services/creative-director'
+      preLoaderRoute: typeof ServicesCreativeDirectorRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/content-marketer': {
+      id: '/services/content-marketer'
+      path: '/content-marketer'
+      fullPath: '/services/content-marketer'
+      preLoaderRoute: typeof ServicesContentMarketerRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/business-consultant': {
+      id: '/services/business-consultant'
+      path: '/business-consultant'
+      fullPath: '/services/business-consultant'
+      preLoaderRoute: typeof ServicesBusinessConsultantRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/brand-strategist': {
+      id: '/services/brand-strategist'
+      path: '/brand-strategist'
+      fullPath: '/services/brand-strategist'
+      preLoaderRoute: typeof ServicesBrandStrategistRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
 
+interface ServicesRouteChildren {
+  ServicesBrandStrategistRoute: typeof ServicesBrandStrategistRoute
+  ServicesBusinessConsultantRoute: typeof ServicesBusinessConsultantRoute
+  ServicesContentMarketerRoute: typeof ServicesContentMarketerRoute
+  ServicesCreativeDirectorRoute: typeof ServicesCreativeDirectorRoute
+  ServicesMarketingConsultantRoute: typeof ServicesMarketingConsultantRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesBrandStrategistRoute: ServicesBrandStrategistRoute,
+  ServicesBusinessConsultantRoute: ServicesBusinessConsultantRoute,
+  ServicesContentMarketerRoute: ServicesContentMarketerRoute,
+  ServicesCreativeDirectorRoute: ServicesCreativeDirectorRoute,
+  ServicesMarketingConsultantRoute: ServicesMarketingConsultantRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CoachingRoute: CoachingRoute,
+  CommunityRoute: CommunityRoute,
+  ConsultationRoute: ConsultationRoute,
+  ContactRoute: ContactRoute,
+  ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
