@@ -319,10 +319,9 @@ code {
     }
 
     /* Optimize animations for mobile */
-    .animate-seismic-fade-in,
+
     .animate-multi-ripple,
-    .animate-enhanced-tremor,
-    .animate-seismic-fade-in {
+    .animate-enhanced-tremor {
       animation-duration: 5s;
     }
 
