@@ -147,7 +147,7 @@ export default function Footer() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-primary h-12 md:h-10"
+                className=" border-gray-700 text-white placeholder-white! focus:border-primary h-12 md:h-10"
               />
               <Button className="w-full bg-primary hover:bg-primary/90 text-white h-12 md:h-10">
                 Subscribe

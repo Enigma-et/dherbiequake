@@ -323,7 +323,7 @@ code {
     .animate-multi-ripple,
     .animate-enhanced-tremor,
     .animate-seismic-fade-in {
-      animation-duration: 0.5s;
+      animation-duration: 5s;
     }
 
     /* Reduce motion for complex animations on mobile */

@@ -790,7 +790,7 @@ function Home() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary px-6 sm:px-10 py-3 sm:py-5 text-lg sm:text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto"
+                className="border-2 border-white text-primary hover:bg-white hover:text-primary px-6 sm:px-10 py-3 sm:py-5 text-lg sm:text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto"
               >
                 <Link to="/consultation">Book a consultation session</Link>
               </Button>
@@ -821,22 +821,6 @@ function Home() {
               </div>
             </div>
           </AnimatedSection>
-        </div>
-
-        {/* Bottom Wave */}
-        <div className="absolute bottom-0 left-0 w-full">
-          <svg
-            viewBox="0 0 1200 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-16"
-          >
-            <path
-              d="M0 120L50 110C100 100 200 80 300 70C400 60 500 60 600 65C700 70 800 80 900 85C1000 90 1100 90 1150 90L1200 90V120H1150C1100 120 1000 120 900 120C800 120 700 120 600 120C500 120 400 120 300 120C200 120 100 120 50 120H0Z"
-              fill="currentColor"
-              className="text-background"
-            />
-          </svg>
         </div>
       </section>
     </div>
