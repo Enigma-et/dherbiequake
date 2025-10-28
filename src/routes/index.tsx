@@ -30,11 +30,11 @@ export const Route = createFileRoute('/')({
 
 function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="min-h-screen bg-linear-to-br from-background via-background to-primary/5">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/10 animate-seismic-fade-in"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-background via-background to-primary/10 animate-seismic-fade-in"></div>
 
         {/* Animated background circles for seismic effect */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full animate-multi-ripple"></div>
@@ -135,7 +135,7 @@ function Home() {
               animation="scale"
               delay={100}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                   <span className="text-2xl font-bold text-primary">C</span>
@@ -189,7 +189,7 @@ function Home() {
               animation="scale"
               delay={200}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                   <span className="text-2xl font-bold text-primary">B</span>
@@ -259,7 +259,7 @@ function Home() {
               animation="scale"
               delay={300}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                   <span className="text-2xl font-bold text-primary">S</span>
@@ -357,7 +357,7 @@ function Home() {
       </section>
 
       {/* Testimonials Carousel Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-primary/10">
+      <section className="py-20 bg-linear-to-br from-primary/5 via-background to-primary/10">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16" animation="fade-up">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-montserrat">
@@ -393,7 +393,7 @@ function Home() {
                     <Card className="h-full bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                       <CardContent className="p-8">
                         <div className="flex items-center mb-6">
-                          <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
+                          <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
                             <span className="text-2xl font-bold text-primary">
                               S
                             </span>
@@ -431,7 +431,7 @@ function Home() {
                     <Card className="h-full bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                       <CardContent className="p-8">
                         <div className="flex items-center mb-6">
-                          <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
+                          <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
                             <span className="text-2xl font-bold text-primary">
                               M
                             </span>
@@ -469,7 +469,7 @@ function Home() {
                     <Card className="h-full bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                       <CardContent className="p-8">
                         <div className="flex items-center mb-6">
-                          <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
+                          <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
                             <span className="text-2xl font-bold text-primary">
                               A
                             </span>
@@ -507,7 +507,7 @@ function Home() {
                     <Card className="h-full bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                       <CardContent className="p-8">
                         <div className="flex items-center mb-6">
-                          <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
+                          <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
                             <span className="text-2xl font-bold text-primary">
                               J
                             </span>
@@ -573,7 +573,7 @@ function Home() {
               behind-the-scenes content
             </p>
             <div className="flex items-center justify-center space-x-2 mb-12">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-linear-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg flex items-center justify-center">
                 <Camera className="w-4 h-4 text-white" />
               </div>
               <span className="text-2xl font-bold text-foreground">
@@ -585,17 +585,17 @@ function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 max-w-6xl mx-auto px-4">
             {/* Instagram Post 1 */}
             <AnimatedSection
-              className="group relative aspect-square bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square bg-linear-to-br from-primary/20 via-primary/10 to-primary/5 rounded-2xl overflow-hidden cursor-pointer"
               animation="scale"
               delay={100}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Briefcase className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm font-medium">
                   Business Growth
                 </p>
@@ -604,17 +604,17 @@ function Home() {
 
             {/* Instagram Post 3 */}
             <AnimatedSection
-              className="group relative aspect-square bg-gradient-to-br from-green-400 via-green-500 to-green-600 rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square bg-linear-to-br from-green-400 via-green-500 to-green-600 rounded-2xl overflow-hidden cursor-pointer"
               animation="scale"
               delay={300}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-green-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-green-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Sprout className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm font-medium">
                   Personal Growth
                 </p>
@@ -623,17 +623,17 @@ function Home() {
 
             {/* Instagram Post 4 */}
             <AnimatedSection
-              className="group relative aspect-square bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square bg-linear-to-br from-purple-400 via-purple-500 to-purple-600 rounded-2xl overflow-hidden cursor-pointer"
               animation="scale"
               delay={400}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-purple-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Palette className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm font-medium">
                   Creative Direction
                 </p>
@@ -642,51 +642,51 @@ function Home() {
 
             {/* Instagram Post 5 */}
             <AnimatedSection
-              className="group relative aspect-square bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square bg-linear-to-br from-orange-400 via-orange-500 to-orange-600 rounded-2xl overflow-hidden cursor-pointer"
               animation="scale"
               delay={500}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-orange-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Zap className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm font-medium">Brand Strategy</p>
               </div>
             </AnimatedSection>
 
             {/* Instagram Post 6 */}
             <AnimatedSection
-              className="group relative aspect-square bg-gradient-to-br from-pink-400 via-pink-500 to-pink-600 rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square bg-linear-to-br from-pink-400 via-pink-500 to-pink-600 rounded-2xl overflow-hidden cursor-pointer"
               animation="scale"
               delay={600}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-pink-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Users className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm font-medium">Community</p>
               </div>
             </AnimatedSection>
 
             {/* Instagram Post 7 */}
             <AnimatedSection
-              className="group relative aspect-square bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600 rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square bg-linear-to-br from-teal-400 via-teal-500 to-teal-600 rounded-2xl overflow-hidden cursor-pointer"
               animation="scale"
               delay={700}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-teal-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm font-medium">
                   Success Metrics
                 </p>
@@ -695,17 +695,17 @@ function Home() {
 
             {/* Instagram Post 8 */}
             <AnimatedSection
-              className="group relative aspect-square bg-gradient-to-br from-indigo-400 via-indigo-500 to-indigo-600 rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square bg-linear-to-br from-indigo-400 via-indigo-500 to-indigo-600 rounded-2xl overflow-hidden cursor-pointer"
               animation="scale"
               delay={800}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-indigo-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Sparkles className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm font-medium">
                   Daily Inspiration
                 </p>
@@ -719,9 +719,9 @@ function Home() {
             animation="fade-up"
             delay={400}
           >
-            <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 p-1 rounded-full">
+            <div className="inline-flex items-center space-x-4 bg-linear-to-r from-purple-500 via-pink-500 to-orange-400 p-1 rounded-full">
               <div className="bg-white rounded-full px-6 py-3 flex items-center space-x-3">
-                <div className="w-6 h-6 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-linear-to-br from-purple-500 via-pink-500 to-orange-400 rounded-full flex items-center justify-center">
                   <Camera className="w-3 h-3 text-white" />
                 </div>
                 <span className="font-semibold text-foreground">
@@ -737,9 +737,9 @@ function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-white relative overflow-hidden">
+      <section className="py-20 bg-linear-to-br from-primary via-primary/90 to-primary/80 text-white relative overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-primary/10"></div>
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-white/10 rounded-full animate-pulse delay-1000"></div>
