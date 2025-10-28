@@ -1,6 +1,7 @@
 {
-  "short_name": "TanStack App",
-  "name": "Create TanStack App Sample",
+  "short_name": "DherbieQuake",
+  "name": "DherbieQuake - The epicenter of positive impact",
+  "description": "The epicenter of positive impact, intentional growth, purpose, and transformation. Professional coaching, brand strategy, and business consulting services.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +11,22 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#006BED",
+  "background_color": "#FFFBE7",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr"
 }

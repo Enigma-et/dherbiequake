@@ -9,34 +9,92 @@ export default function Header() {
 
   return (
     <>
-      <header className="p-4 flex items-center bg-black text-white shadow-lg">
-        <button
-          onClick={() => setIsOpen(true)}
-          className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
-          aria-label="Open menu"
-        >
-          <Menu size={24} />
-        </button>
-        <div className="ml-4">
-          <Link to="/" className="flex items-center">
-            <Logo variant="mark" color="white" size="md" />
-            <span className="ml-3 text-xl font-semibold font-montserrat">
-              DherbieQuake
-            </span>
-          </Link>
+      <header className="p-4 flex items-center justify-between bg-black text-white shadow-lg animate-seismic-fade-in">
+        <div className="flex items-center">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="p-2 hover:bg-gray-800 rounded-lg transition-colors hover:animate-tremor-once md:hidden touch-target"
+            aria-label="Open menu"
+          >
+            <Menu size={24} />
+          </button>
+          <div className="ml-4 md:ml-0">
+            <Link to="/" className="flex items-center">
+              <Logo variant="mark" color="white" size="md" />
+              <span className="ml-3 text-xl font-semibold font-montserrat">
+                DherbieQuake
+              </span>
+            </Link>
+          </div>
         </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-6">
+          <Link
+            to="/"
+            className="hover:text-primary transition-colors font-medium"
+            activeProps={{ className: 'text-primary font-medium' }}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="hover:text-primary transition-colors font-medium"
+            activeProps={{ className: 'text-primary font-medium' }}
+          >
+            About
+          </Link>
+          <Link
+            to="/services"
+            className="hover:text-primary transition-colors font-medium"
+            activeProps={{ className: 'text-primary font-medium' }}
+          >
+            Services
+          </Link>
+          <Link
+            to="/coaching"
+            className="hover:text-primary transition-colors font-medium"
+            activeProps={{ className: 'text-primary font-medium' }}
+          >
+            Coaching
+          </Link>
+          <Link
+            to="/community"
+            className="hover:text-primary transition-colors font-medium"
+            activeProps={{ className: 'text-primary font-medium' }}
+          >
+            Community
+          </Link>
+          <Link
+            to="/consultation"
+            className="hover:text-primary transition-colors font-medium"
+            activeProps={{ className: 'text-primary font-medium' }}
+          >
+            Consultation
+          </Link>
+          <Link
+            to="/contact"
+            className="hover:text-primary transition-colors font-medium"
+            activeProps={{ className: 'text-primary font-medium' }}
+          >
+            Contact
+          </Link>
+        </nav>
       </header>
 
       <aside
         className={`fixed top-0 left-0 h-full w-80 bg-black text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setIsOpen(false)
+        }}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-700">
           <h2 className="text-xl font-bold">Navigation</h2>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
+            className="p-2 hover:bg-gray-800 rounded-lg transition-colors touch-target"
             aria-label="Close menu"
           >
             <X size={24} />
@@ -66,7 +124,9 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
             }}
           >
-            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">A</span>
+            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
+              A
+            </span>
             <span className="font-medium">About</span>
           </Link>
 
@@ -79,7 +139,9 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
             }}
           >
-            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">S</span>
+            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
+              S
+            </span>
             <span className="font-medium">Services</span>
           </Link>
 
@@ -92,7 +154,9 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
             }}
           >
-            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">C</span>
+            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
+              C
+            </span>
             <span className="font-medium">Coaching</span>
           </Link>
 
@@ -105,7 +169,9 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
             }}
           >
-            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">Q</span>
+            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
+              Q
+            </span>
             <span className="font-medium">Community</span>
           </Link>
 
@@ -118,7 +184,9 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
             }}
           >
-            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">B</span>
+            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
+              B
+            </span>
             <span className="font-medium">Consultation</span>
           </Link>
 
@@ -131,7 +199,9 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
             }}
           >
-            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">@</span>
+            <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
+              @
+            </span>
             <span className="font-medium">Contact</span>
           </Link>
         </nav>

@@ -7,59 +7,45 @@ interface LogoProps {
   className?: string
 }
 
+const LOGO_PATHS = {
+  mark: {
+    blue: '/logos/mark-blue.png',
+    black: '/logos/mark-black.jpg',
+    white: '/logos/mark-white.jpg',
+  },
+  combination: {
+    blue: '/logos/combination-blue.png',
+    black: '/logos/combination-black.jpg',
+    white: '/logos/combination-white.png',
+  },
+} as const
+
 export default function Logo({
   variant = 'combination',
   color = 'blue',
   size = 'md',
-  className
+  className,
 }: LogoProps) {
   const sizeClasses = {
-    sm: 'h-8',
-    md: 'h-10',
-    lg: 'h-12',
-    xl: 'h-16'
+    sm: 'h-8 w-auto',
+    md: 'h-10 w-auto',
+    lg: 'h-12 w-auto',
+    xl: 'h-16 w-auto',
   }
 
-  // Use the provided logo assets from the DQ logo folder
-  const getLogoSrc = () => {
-    if (variant === 'mark') {
-      switch (color) {
-        case 'blue':
-          return '/DQ logo/DQ logo mark/Blue/20241214_232553.png'
-        case 'black':
-          return '/DQ logo/DQ logo mark/Black/Black /20241213_124148.jpg'
-        case 'white':
-          return '/DQ logo/DQ logo mark/White/20241214_232517.jpg'
-        default:
-          return '/DQ logo/DQ logo mark/Blue/20241214_232553.png'
-      }
-    } else {
-      // Combination logos
-      switch (color) {
-        case 'blue':
-          return '/Combination - Png/Dherbie uake_20241219_152425_0000.png'
-        case 'black':
-          return '/Combination - Jpeg/Dherbie uake_20241219_152635_0000.jpg'
-        case 'white':
-          return '/Combination - Png/Dherbie uake_20241219_152426_0001.png'
-        default:
-          return '/Combination - Png/Dherbie uake_20241219_152425_0000.png'
-      }
-    }
-  }
+  const logoSrc = LOGO_PATHS[variant][color]
 
   return (
     <img
-      src={getLogoSrc()}
-      alt="DherbieQuake Logo"
+      src={logoSrc}
+      alt={variant === 'mark' ? 'DQ Logo Mark' : 'DherbieQuake Logo'}
       className={cn(
         sizeClasses[size],
-        'transition-all duration-300 hover:scale-105',
-        className
+        'transition-all duration-300 hover:scale-105 animate-seismic-fade-in',
+        className,
       )}
-      style={{
-        filter: variant === 'mark' && color === 'white' ? 'brightness(0) invert(1)' : undefined
-      }}
+      // Optional: Remove filter if you have real white assets
+      // style={variant === 'mark' && color === 'white' ? { filter: 'brightness(0) invert(1)' } : undefined}
     />
   )
 }

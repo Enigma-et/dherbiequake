@@ -2,8 +2,6 @@ import { createEnv } from '@t3-oss/env-core'
 import { z } from 'zod'
 
 export const env = createEnv({
-
-
   /**
    * The prefix that client-side variables must have. This is enforced both at
    * a type-level and at runtime.
@@ -12,6 +10,9 @@ export const env = createEnv({
 
   client: {
     VITE_PAYSTACK_API_KEY: z.string().min(1),
+    VITE_APP_ENV: z.enum(['development', 'staging', 'production']).default('development'),
+    VITE_APP_URL: z.string().url().default('http://localhost:3000'),
+    VITE_ANALYTICS_ID: z.string().optional(),
   },
 
   /**
