@@ -9,8 +9,16 @@ export default function Header() {
 
   return (
     <>
-      <header className="p-4 flex items-center justify-between bg-black text-white shadow-lg animate-seismic-fade-in">
-        <div className="flex items-center">
+      <header className="md:p-4 flex items-center justify-between bg-primary text-white shadow-lg animate-seismic-fade-in sticky top-0 z-9999 h-16">
+        <div className="flex items-center justify-between w-full">
+          <div className="ml-4 md:ml-0">
+            <Link to="/" className="flex items-center">
+              <Logo variant="mark" color="blue" size="md" />
+              <span className="ml-3 text-xl font-semibold font-montserra">
+                DherbieQuake
+              </span>
+            </Link>
+          </div>
           <button
             onClick={() => setIsOpen(true)}
             className="p-2 hover:bg-gray-800 rounded-lg transition-colors hover:animate-tremor-once md:hidden touch-target"
@@ -18,14 +26,6 @@ export default function Header() {
           >
             <Menu size={24} />
           </button>
-          <div className="ml-4 md:ml-0">
-            <Link to="/" className="flex items-center">
-              <Logo variant="mark" color="white" size="md" />
-              <span className="ml-3 text-xl font-semibold font-montserrat">
-                DherbieQuake
-              </span>
-            </Link>
-          </div>
         </div>
 
         {/* Desktop Navigation */}
@@ -83,7 +83,7 @@ export default function Header() {
       </header>
 
       <aside
-        className={`fixed top-0 left-0 h-full w-80 bg-black text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed top-0 left-0 h-full w-full bg-primary text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
         onClick={(e) => {
@@ -106,10 +106,10 @@ export default function Header() {
             to="/"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
-            }}
+            // activeProps={{
+            //   className:
+            //     'flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-background/90 transition-colors mb-2',
+            // }}
           >
             <Home size={20} />
             <span className="font-medium">Home</span>
@@ -119,10 +119,10 @@ export default function Header() {
             to="/about"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
-            }}
+            // activeProps={{
+            //   className:
+            //     'flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-background/90 transition-colors mb-2',
+            // }}
           >
             <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
               A
@@ -134,10 +134,10 @@ export default function Header() {
             to="/services"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
-            }}
+            // activeProps={{
+            //   className:
+            //     'flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-background/90 transition-colors mb-2',
+            // }}
           >
             <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
               S
@@ -149,10 +149,10 @@ export default function Header() {
             to="/coaching"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
-            }}
+            // activeProps={{
+            //   className:
+            //     'flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-background/90 transition-colors mb-2',
+            // }}
           >
             <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
               C
@@ -164,10 +164,10 @@ export default function Header() {
             to="/community"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
-            }}
+            // activeProps={{
+            //   className:
+            //     'flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-background/90 transition-colors mb-2',
+            // }}
           >
             <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
               Q
@@ -179,10 +179,10 @@ export default function Header() {
             to="/consultation"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
-            }}
+            // activeProps={{
+            //   className:
+            //     'flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-background/90 transition-colors mb-2',
+            // }}
           >
             <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
               B
@@ -194,10 +194,10 @@ export default function Header() {
             to="/contact"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-primary hover:bg-primary/90 transition-colors mb-2',
-            }}
+            // activeProps={{
+            //   className:
+            //     'flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-background/90 transition-colors mb-2',
+            // }}
           >
             <span className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium">
               @
