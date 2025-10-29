@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { FormField } from '@/components/ui/form-field'
-import { env } from '@/env'
+// import { env } from '@/env'
 import { consultationFormSchema, useFormValidation } from '@/lib/validation'
 
 export const Route = createFileRoute('/consultation')({
@@ -1007,7 +1007,7 @@ function Consultation() {
                     amount={
                       bookingData.duration === '30min' ? 2500000 : 4500000
                     }
-                    publicKey={env.VITE_PAYSTACK_API_KEY} // TODO: Replace with real test key
+                    publicKey={import.meta.env.VITE_PAYSTACK_API_KEY}
                     metadata={{
                       custom_fields: [
                         {

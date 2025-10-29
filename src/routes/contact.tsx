@@ -23,7 +23,7 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { FormField } from '@/components/ui/form-field'
 import { contactFormSchema, useFormValidation } from '@/lib/validation'
-import { env } from '@/env'
+// import { env } from '@/env'
 
 export const Route = createFileRoute('/contact')({
   component: Contact,
@@ -65,7 +65,10 @@ function Contact() {
     setErrorMessage('')
 
     try {
-      await axios.post(`${env.VITE_API_URL}/contact`, formData)
+      await axios.post(
+        `${import.meta.env.VITE_API_URL || 'https://api.dherbiequake.com'}/contact`,
+        formData,
+      )
       setIsSubmitting(false)
       setIsSubmitted(true)
       reset()
