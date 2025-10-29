@@ -54,7 +54,7 @@ function Coaching() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
             >
-              <Link to="/consultation">Start Your Journey</Link>
+              <Link to="/contact">Start Your Journey</Link>
             </Button>
           </AnimatedSection>
         </div>

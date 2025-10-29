@@ -296,7 +296,7 @@ function Contact() {
                         href="mailto:hello@dherbiequake.com"
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        hello@dherbiequake.com
+                        contact@dherbiequake.com
                       </a>
                     </div>
                   </div>
