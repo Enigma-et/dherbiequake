@@ -32,52 +32,156 @@ export default function Header() {
         <nav className="hidden md:flex items-center space-x-6">
           <Link
             to="/"
-            className="hover:text-primary transition-colors font-medium"
-            activeProps={{ className: 'text-primary font-medium' }}
+            className="
+              group relative pb-1 text-white font-medium
+              transition-all duration-300 ease-out
+              hover:font-bold
+              data-[active]:font-bold
+            "
+            preload={false}
           >
             Home
+            <span
+              className="
+              absolute left-0 bottom-0 w-full h-0.5 bg-white
+              origin-left scale-x-0
+              transition-all duration-300 ease-out
+              group-hover:scale-x-100 group-hover:h-1
+              data-[active]:scale-x-100 data-[active]:h-1
+            "
+            />
           </Link>
+
           <Link
             to="/about"
-            className="hover:text-primary transition-colors font-medium"
-            activeProps={{ className: 'text-primary font-medium' }}
+            className="
+              group relative pb-1 text-white font-medium
+              transition-all duration-300 ease-out
+              hover:font-bold
+              data-[active]:font-bold
+            "
+            preload={false}
           >
             About
+            <span
+              className="
+              absolute left-0 bottom-0 w-full h-0.5 bg-white
+              origin-left scale-x-0
+              transition-all duration-300 ease-out
+              group-hover:scale-x-100 group-hover:h-1
+              data-[active]:scale-x-100 data-[active]:h-1
+            "
+            />
           </Link>
+
           <Link
             to="/services"
-            className="hover:text-primary transition-colors font-medium"
-            activeProps={{ className: 'text-primary font-medium' }}
+            className="
+              group relative pb-1 text-white font-medium
+              transition-all duration-300 ease-out
+              hover:font-bold
+              data-[active]:font-bold
+            "
+            preload={false}
           >
             Services
+            <span
+              className="
+              absolute left-0 bottom-0 w-full h-0.5 bg-white
+              origin-left scale-x-0
+              transition-all duration-300 ease-out
+              group-hover:scale-x-100 group-hover:h-1
+              data-[active]:scale-x-100 data-[active]:h-1
+            "
+            />
           </Link>
+
           <Link
             to="/coaching"
-            className="hover:text-primary transition-colors font-medium"
-            activeProps={{ className: 'text-primary font-medium' }}
+            className="
+              group relative pb-1 text-white font-medium
+              transition-all duration-300 ease-out
+              hover:font-bold
+              data-[active]:font-bold
+            "
+            preload={false}
           >
             Coaching
+            <span
+              className="
+              absolute left-0 bottom-0 w-full h-0.5 bg-white
+              origin-left scale-x-0
+              transition-all duration-300 ease-out
+              group-hover:scale-x-100 group-hover:h-1
+              data-[active]:scale-x-100 data-[active]:h-1
+            "
+            />
           </Link>
+
           <Link
             to="/community"
-            className="hover:text-primary transition-colors font-medium"
-            activeProps={{ className: 'text-primary font-medium' }}
+            className="
+              group relative pb-1 text-white font-medium
+              transition-all duration-300 ease-out
+              hover:font-bold
+              data-[active]:font-bold
+            "
+            preload={false}
           >
             Community
+            <span
+              className="
+                absolute left-0 bottom-0 w-full h-0.5 bg-white
+                origin-left scale-x-0
+                transition-all duration-300 ease-out
+                group-hover:scale-x-100 group-hover:h-1
+                data-[active]:scale-x-100 data-[active]:h-1
+              "
+            />
           </Link>
+
           <Link
             to="/consultation"
-            className="hover:text-primary transition-colors font-medium"
-            activeProps={{ className: 'text-primary font-medium' }}
+            className="
+                group relative pb-1 text-white font-medium
+                transition-all duration-300 ease-out
+                hover:font-bold
+                data-[active]:font-bold
+              "
+            preload={false}
           >
             Consultation
+            <span
+              className="
+              absolute left-0 bottom-0 w-full h-0.5 bg-white
+              origin-left scale-x-0
+              transition-all duration-300 ease-out
+              group-hover:scale-x-100 group-hover:h-1
+              data-[active]:scale-x-100 data-[active]:h-1
+            "
+            />
           </Link>
+
           <Link
             to="/contact"
-            className="hover:text-primary transition-colors font-medium"
-            activeProps={{ className: 'text-primary font-medium' }}
+            className="
+              group relative pb-1 text-white font-medium
+              transition-all duration-300 ease-out
+              hover:font-bold
+              data-[active]:font-bold
+            "
+            preload={false}
           >
             Contact
+            <span
+              className="
+              absolute left-0 bottom-0 w-full h-0.5 bg-white
+              origin-left scale-x-0
+              transition-all duration-300 ease-out
+              group-hover:scale-x-100 group-hover:h-1
+              data-[active]:scale-x-100 data-[active]:h-1
+            "
+            />
           </Link>
         </nav>
       </header>
