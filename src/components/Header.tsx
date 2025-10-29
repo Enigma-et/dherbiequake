@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="md:p-4 flex items-center justify-between bg-primary text-white shadow-lg animate-seismic-fade-in sticky top-0 z-9999 h-16">
+      <header className="md:p-4 flex items-center justify-between bg-primary text-white shadow-lg animate-seismic-fade-in sticky top-0 z-200 h-16">
         <div className="flex items-center justify-between w-full">
           <div className="ml-4 md:ml-0">
             <Link to="/" className="flex items-center">
@@ -20,11 +20,11 @@ export default function Header() {
             </Link>
           </div>
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={() => setIsOpen(!isOpen)}
             className="p-2 hover:bg-gray-800 rounded-lg transition-colors hover:animate-tremor-once md:hidden touch-target"
-            aria-label="Open menu"
+            aria-label="Toggle menu"
           >
-            <Menu size={24} />
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
@@ -83,24 +83,13 @@ export default function Header() {
       </header>
 
       <aside
-        className={`fixed top-0 left-0 h-full w-full bg-primary text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed top-0 left-0 h-full w-full mt-16 bg-primary text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
         onClick={(e) => {
           if (e.target === e.currentTarget) setIsOpen(false)
         }}
       >
-        <div className="flex items-center justify-between p-4 border-b border-gray-700">
-          <h2 className="text-xl font-bold">Navigation</h2>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="p-2 hover:bg-gray-800 rounded-lg transition-colors touch-target"
-            aria-label="Close menu"
-          >
-            <X size={24} />
-          </button>
-        </div>
-
         <nav className="flex-1 p-4 overflow-y-auto">
           <Link
             to="/"
