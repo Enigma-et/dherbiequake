@@ -1,18 +1,5 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
-import {
-  BarChart3,
-  Briefcase,
-  Camera,
-  Mail,
-  Palette,
-  Sparkles,
-  Sprout,
-  Star,
-  Target,
-  TrendingUp,
-  Users,
-  Zap,
-} from 'lucide-react'
+import { BarChart3, Camera, Mail, Sparkles, Star, Target } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Carousel,
