@@ -1,4 +1,4 @@
-import { Link, createFileRoute } from '@tanstack/react-router'
+import { Link, Outlet, createFileRoute, useLocation } from '@tanstack/react-router'
 import { Building, Palette, PenTool, Target, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -10,6 +10,13 @@ export const Route = createFileRoute('/services')({
 })
 
 function Services() {
+  const location = useLocation()
+
+  // If we're on a child route, render the child component
+  if (location.pathname !== '/services') {
+    return <Outlet />
+  }
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -22,7 +29,7 @@ function Services() {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection
             className="max-w-4xl mx-auto text-center"
-            animation="fade-up"
+            animation="slide-right"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-8 font-montserrat leading-tight">
               Professional
@@ -92,6 +99,7 @@ function Services() {
                   <Button
                     asChild
                     className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 transition-all duration-300 group-hover:shadow-lg group-hover:scale-105"
+                    aria-label="Learn more about Brand Strategist services"
                   >
                     <Link to="/services/brand-strategist">Learn More</Link>
                   </Button>

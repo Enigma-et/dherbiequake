@@ -16,6 +16,8 @@ export const Route = createFileRoute('/coaching')({
   component: Coaching,
 })
 
+// Copy this complete file and replace your current coaching page
+
 function Coaching() {
   return (
     <div className="min-h-screen bg-background">
@@ -62,57 +64,67 @@ function Coaching() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 mb-12 border-l-4 border-primary">
-              <p className="text-xl text-foreground leading-relaxed font-lato italic">
-                If you've been feeling overwhelmed, uncertain, or confused, this
-                space was built for you. Here, coaching isn't a class, and it is
-                not generic advice. It is an intentional, one-on-one coaching
-                where we walk your unique journey together unpacking the noise,
-                redefining direction, and activating the power to move forward
-                boldly.
-              </p>
-            </div>
+            <AnimatedSection animation="slide-right" delay={100}>
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 mb-12 border-l-4 border-primary">
+                <p className="text-xl text-foreground leading-relaxed font-lato italic">
+                  If you've been feeling overwhelmed, uncertain, or confused,
+                  this space was built for you. Here, coaching isn't a class,
+                  and it is not generic advice. It is an intentional, one-on-one
+                  coaching where we walk your unique journey together unpacking
+                  the noise, redefining direction, and activating the power to
+                  move forward boldly.
+                </p>
+              </div>
+            </AnimatedSection>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
-              <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Target className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat">
-                    Strategic
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Every conversation, session and assignment builds traction
-                    toward your specific goals and vision.
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="scale" delay={200}>
+                <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg h-full">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Target className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat">
+                      Strategic
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Every conversation, session and assignment builds traction
+                      toward your specific goals and vision.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Dumbbell className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat">
-                    Purposeful
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    It's a relationship of accountability, alignment, and
-                    intentional transformation in personal clarity, mindset, and
-                    life-business integration.
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="scale" delay={300}>
+                <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg h-full">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Dumbbell className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat">
+                      Purposeful
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      It's a relationship of accountability, alignment, and
+                      intentional transformation in personal clarity, mindset,
+                      and life-business integration.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
 
-            <div className="text-center">
+            <AnimatedSection
+              className="text-center"
+              animation="fade-up"
+              delay={400}
+            >
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 Having a coach isn't optional, it's wise. It's bold. It's
                 necessary. You already have vision. I help you make it
                 actionable.
               </p>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -121,134 +133,152 @@ function Coaching() {
       <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-primary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 font-montserrat text-center">
-              This Space Is For You If You Are:
-            </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
+            <AnimatedSection className="text-center mb-12" animation="fade-up">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 font-montserrat">
+                This Space Is For You If You Are:
+              </h2>
+              <div className="w-24 h-1 bg-primary mx-auto"></div>
+            </AnimatedSection>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white font-bold text-sm">✓</span>
+              <AnimatedSection animation="slide-right" delay={100}>
+                <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-white font-bold text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
+                          Building Something New
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Trying to turn your ideas into a clear offer and need
+                          guidance to structure your vision.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
-                        Building Something New
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Trying to turn your ideas into a clear offer and need
-                        guidance to structure your vision.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white font-bold text-sm">✓</span>
+              <AnimatedSection animation="slide-left" delay={150}>
+                <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-white font-bold text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
+                          Finding Your Voice
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Struggling to find your voice, lane, or direction and
+                          need clarity on your unique path.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
-                        Finding Your Voice
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Struggling to find your voice, lane, or direction and
-                        need clarity on your unique path.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white font-bold text-sm">✓</span>
+              <AnimatedSection animation="slide-right" delay={200}>
+                <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-white font-bold text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
+                          In Transition
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          In a transition season and uncertain about what's next
+                          in your career or business.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
-                        In Transition
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        In a transition season and uncertain about what's next
-                        in your career or business.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white font-bold text-sm">✓</span>
+              <AnimatedSection animation="slide-left" delay={250}>
+                <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-white font-bold text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
+                          Ready for Action
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Tired of "taking notes" and ready to take action
+                          toward real transformation.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
-                        Ready for Action
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Tired of "taking notes" and ready to take action toward
-                        real transformation.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white font-bold text-sm">✓</span>
+              <AnimatedSection animation="slide-right" delay={300}>
+                <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-white font-bold text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
+                          Seeking Recognition
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Ready to be seen, heard, and paid for what you bring
+                          to the world.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
-                        Seeking Recognition
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Ready to be seen, heard, and paid for what you bring to
-                        the world.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white font-bold text-sm">✓</span>
+              <AnimatedSection animation="slide-left" delay={350}>
+                <Card className="bg-white/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-white font-bold text-sm">✓</span>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
+                          Called to More
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Feeling called to more, but unsure how to show up
+                          powerfully in your purpose.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground mb-2 font-montserrat">
-                        Called to More
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Feeling called to more, but unsure how to show up
-                        powerfully in your purpose.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
 
-            <div className="text-center mt-12">
+            <AnimatedSection
+              className="text-center mt-12"
+              animation="fade-up"
+              delay={400}
+            >
               <div className="bg-primary/10 rounded-2xl p-6 inline-block">
                 <p className="text-lg text-primary font-medium italic">
                   If this resonates, this coaching space is for you.
                 </p>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -257,90 +287,101 @@ function Coaching() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 font-montserrat text-center">
-              Structure & Support
-            </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
-
-            <p className="text-lg text-muted-foreground leading-relaxed mb-12 text-center">
-              This experience is designed for transformation that sticks.
-            </p>
+            <AnimatedSection className="text-center mb-12" animation="fade-up">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 font-montserrat">
+                Structure & Support
+              </h2>
+              <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                This experience is designed for transformation that sticks.
+              </p>
+            </AnimatedSection>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
-              <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
-                    Biweekly 1:1 Coaching Calls
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    Strategic, Reflective, Action-Based sessions tailored to
-                    your unique journey and goals.
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="scale" delay={100}>
+                <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Phone className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
+                      Biweekly 1:1 Coaching Calls
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      Strategic, Reflective, Action-Based sessions tailored to
+                      your unique journey and goals.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <MessageCircle className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
-                    Ongoing Check-ins & Accountability
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    Regular support between sessions to keep you on track and
-                    accountable to your goals.
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="scale" delay={200}>
+                <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <MessageCircle className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
+                      Ongoing Check-ins & Accountability
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      Regular support between sessions to keep you on track and
+                      accountable to your goals.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <ClipboardList className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
-                    Strategic Assignments + Personalized Tools
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    Custom exercises and resources designed specifically for
-                    your growth and transformation.
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="scale" delay={300}>
+                <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <ClipboardList className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
+                      Strategic Assignments + Personalized Tools
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      Custom exercises and resources designed specifically for
+                      your growth and transformation.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Target className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
-                    A Custom Growth Plan
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    Built around your unique goals, challenges, and vision for
-                    transformation.
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="scale" delay={400}>
+                <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Target className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
+                      A Custom Growth Plan
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      Built around your unique goals, challenges, and vision for
+                      transformation.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <BarChart3 className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
-                    Progress You Can Actually Measure
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    Clear metrics and milestones to track your growth and
-                    celebrate your wins.
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="scale" delay={500}>
+                <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <BarChart3 className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3 font-montserrat">
+                      Progress You Can Actually Measure
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      Clear metrics and milestones to track your growth and
+                      celebrate your wins.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
           </div>
         </div>
@@ -350,136 +391,142 @@ function Coaching() {
       <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-primary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 font-montserrat text-center">
-              Track Options
-            </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
+            <AnimatedSection className="text-center mb-12" animation="fade-up">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 font-montserrat">
+                Track Options
+              </h2>
+              <div className="w-24 h-1 bg-primary mx-auto"></div>
+            </AnimatedSection>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* 3-Month Experience */}
-              <Card className="relative bg-white border-2 border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold">
-                    Most Popular
+              <AnimatedSection animation="scale" delay={100}>
+                <Card className="relative bg-white border-2 border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold">
+                      Most Popular
+                    </div>
                   </div>
-                </div>
-                <CardContent className="p-8 pt-12">
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-bold text-foreground mb-2 font-montserrat">
-                      3-Month Experience
-                    </h3>
-                    <p className="text-primary text-lg font-semibold">
-                      For clarity, direction, and quick progress
-                    </p>
-                  </div>
+                  <CardContent className="p-8 pt-12">
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-bold text-foreground mb-2 font-montserrat">
+                        3-Month Experience
+                      </h3>
+                      <p className="text-primary text-lg font-semibold">
+                        For clarity, direction, and quick progress
+                      </p>
+                    </div>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                    <div className="space-y-4 mb-8">
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          6 Biweekly 1:1 Coaching Calls
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        6 Biweekly 1:1 Coaching Calls
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          Ongoing Check-ins & Accountability
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        Ongoing Check-ins & Accountability
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          Custom Growth Plan & Tools
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        Custom Growth Plan & Tools
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          Progress Tracking & Milestones
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        Progress Tracking & Milestones
-                      </span>
                     </div>
-                  </div>
 
-                  <Button
-                    asChild
-                    className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105"
-                  >
-                    <Link to="/consultation">Start 3-Month Journey</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                    <Button
+                      asChild
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105"
+                    >
+                      <Link to="/consultation">Start 3-Month Journey</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
               {/* 6-Month Experience */}
-              <Card className="relative bg-white border-2 border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <CardContent className="p-8">
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-bold text-foreground mb-2 font-montserrat">
-                      6-Month Experience
-                    </h3>
-                    <p className="text-primary text-lg font-semibold">
-                      For deep transformation and sustained alignment
-                    </p>
-                  </div>
+              <AnimatedSection animation="scale" delay={200}>
+                <Card className="relative bg-white border-2 border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
+                  <CardContent className="p-8">
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-bold text-foreground mb-2 font-montserrat">
+                        6-Month Experience
+                      </h3>
+                      <p className="text-primary text-lg font-semibold">
+                        For deep transformation and sustained alignment
+                      </p>
+                    </div>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                    <div className="space-y-4 mb-8">
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          12 Biweekly 1:1 Coaching Calls
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        12 Biweekly 1:1 Coaching Calls
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          Extended Check-ins & Accountability
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        Extended Check-ins & Accountability
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          Comprehensive Growth Plan & Tools
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        Comprehensive Growth Plan & Tools
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          Advanced Progress Tracking
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        Advanced Progress Tracking
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-primary text-sm">✓</span>
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <span className="text-primary text-sm">✓</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          Long-term Strategy Development
+                        </span>
                       </div>
-                      <span className="text-muted-foreground">
-                        Long-term Strategy Development
-                      </span>
                     </div>
-                  </div>
 
-                  <Button
-                    asChild
-                    className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105"
-                  >
-                    <Link to="/consultation">Start 6-Month Journey</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                    <Button
+                      asChild
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105"
+                    >
+                      <Link to="/consultation">Start 6-Month Journey</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
           </div>
         </div>
@@ -494,7 +541,10 @@ function Coaching() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <AnimatedSection
+            className="max-w-4xl mx-auto text-center"
+            animation="fade-up"
+          >
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-montserrat leading-tight">
               Your Move
             </h2>
@@ -534,7 +584,7 @@ function Coaching() {
                 <Link to="/about">Learn More About My Approach</Link>
               </Button>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>

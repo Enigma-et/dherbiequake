@@ -43,7 +43,7 @@ function About() {
         <div className="container mx-auto px-4">
           <AnimatedSection
             className="max-w-4xl mx-auto"
-            animation="fade-up"
+            animation="slide-right"
             delay={200}
           >
             <div className="prose prose-lg max-w-none">

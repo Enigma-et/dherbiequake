@@ -32,7 +32,8 @@ function Home() {
   return (
     <div className="min-h-screen bg-linear-to-br from-background via-background to-primary/5">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+      <section className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden py-12 md:py-0">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-linear-to-br from-background via-background to-primary/10 animate-seismic-fade-in"></div>
 
@@ -41,45 +42,30 @@ function Home() {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full animate-multi-ripple delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full animate-multi-ripple delay-500"></div>
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-4">
-          {/* Main Logo */}
-          {/* <AnimatedSection className="mb-8" animation="fade-up">
-            <img
-              src="logos/mark-blue.png"
-              alt="DherbieQuake Logo"
-              className="h-20 mx-auto mb-6"
-            />
-          </AnimatedSection> */}
-
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
           {/* Main Tagline */}
           <AnimatedSection animation="fade-up" delay={100}>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-8 font-montserrat leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 md:mb-8 font-montserrat leading-tight tracking-tight">
               DherbieQuake
             </h1>
           </AnimatedSection>
 
-          {/* Hero Description */}
+          {/* Seamlessly Merged Subheading */}
           <AnimatedSection
-            className="max-w-4xl mx-auto mb-12 px-4"
+            className="max-w-5xl mx-auto mb-10 md:mb-14 px-4"
             animation="fade-up"
             delay={200}
           >
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground leading-relaxed font-lato italic">
-              The epicenter of positive impact, intentional growth, purpose, and
-              transformation.
-            </p>
-          </AnimatedSection>
-
-          {/* Ripple Effect Description */}
-          <AnimatedSection
-            className="max-w-3xl mx-auto mb-12 px-4"
-            animation="fade-up"
-            delay={300}
-          >
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Like an epicenter causes ripple effects, this space is where
-              internal alignment leads to external transformation in mindset,
-              growth, and purpose.
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground leading-relaxed font-lato">
+              <span className="text-primary">
+                The epicenter of positive impact, intentional growth, and
+                transformation.
+              </span>
+              {/* <span className="text-muted-foreground font-light">
+                {' '}
+                — where internal alignment creates ripple effects that reshape
+                your mindset, amplify your growth, and clarify your purpose.
+              </span> */}
             </p>
           </AnimatedSection>
 
@@ -87,7 +73,7 @@ function Home() {
           <AnimatedSection
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
             animation="fade-up"
-            delay={400}
+            delay={300}
           >
             <Button
               asChild
@@ -108,9 +94,9 @@ function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2">
           <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-primary/50 rounded-full mt-2"></div>
+            <div className="w-1 h-3 bg-primary/50 rounded-full mt-2 animate-bounce"></div>
           </div>
         </div>
       </section>
@@ -355,7 +341,6 @@ function Home() {
           </AnimatedSection>
         </div>
       </section>
-
       {/* Testimonials Carousel Section */}
       <section className="py-20 bg-linear-to-br from-primary/5 via-background to-primary/10">
         <div className="container mx-auto px-4">
@@ -559,182 +544,7 @@ function Home() {
           </AnimatedSection>
         </div>
       </section>
-
       {/* Instagram Feed Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center mb-16" animation="fade-up">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-montserrat">
-              Follow The Journey
-            </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-              Get inspired by daily insights, transformations, and
-              behind-the-scenes content
-            </p>
-            <div className="flex items-center justify-center space-x-2 mb-12">
-              <div className="w-8 h-8 bg-linear-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg flex items-center justify-center">
-                <Camera className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-2xl font-bold text-foreground">
-                @dherbiequake
-              </span>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 max-w-6xl mx-auto px-4">
-            {/* Instagram Post 1 */}
-            <AnimatedSection
-              className="group relative aspect-square bg-linear-to-br from-primary/20 via-primary/10 to-primary/5 rounded-2xl overflow-hidden cursor-pointer"
-              animation="scale"
-              delay={100}
-            >
-              <div className="absolute inset-0 bg-linear-to-br from-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Briefcase className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">
-                  Business Growth
-                </p>
-              </div>
-            </AnimatedSection>
-
-            {/* Instagram Post 3 */}
-            <AnimatedSection
-              className="group relative aspect-square bg-linear-to-br from-green-400 via-green-500 to-green-600 rounded-2xl overflow-hidden cursor-pointer"
-              animation="scale"
-              delay={300}
-            >
-              <div className="absolute inset-0 bg-linear-to-br from-green-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Sprout className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">
-                  Personal Growth
-                </p>
-              </div>
-            </AnimatedSection>
-
-            {/* Instagram Post 4 */}
-            <AnimatedSection
-              className="group relative aspect-square bg-linear-to-br from-purple-400 via-purple-500 to-purple-600 rounded-2xl overflow-hidden cursor-pointer"
-              animation="scale"
-              delay={400}
-            >
-              <div className="absolute inset-0 bg-linear-to-br from-purple-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Palette className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">
-                  Creative Direction
-                </p>
-              </div>
-            </AnimatedSection>
-
-            {/* Instagram Post 5 */}
-            <AnimatedSection
-              className="group relative aspect-square bg-linear-to-br from-orange-400 via-orange-500 to-orange-600 rounded-2xl overflow-hidden cursor-pointer"
-              animation="scale"
-              delay={500}
-            >
-              <div className="absolute inset-0 bg-linear-to-br from-orange-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Zap className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">Brand Strategy</p>
-              </div>
-            </AnimatedSection>
-
-            {/* Instagram Post 6 */}
-            <AnimatedSection
-              className="group relative aspect-square bg-linear-to-br from-pink-400 via-pink-500 to-pink-600 rounded-2xl overflow-hidden cursor-pointer"
-              animation="scale"
-              delay={600}
-            >
-              <div className="absolute inset-0 bg-linear-to-br from-pink-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">Community</p>
-              </div>
-            </AnimatedSection>
-
-            {/* Instagram Post 7 */}
-            <AnimatedSection
-              className="group relative aspect-square bg-linear-to-br from-teal-400 via-teal-500 to-teal-600 rounded-2xl overflow-hidden cursor-pointer"
-              animation="scale"
-              delay={700}
-            >
-              <div className="absolute inset-0 bg-linear-to-br from-teal-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">
-                  Success Metrics
-                </p>
-              </div>
-            </AnimatedSection>
-
-            {/* Instagram Post 8 */}
-            <AnimatedSection
-              className="group relative aspect-square bg-linear-to-br from-indigo-400 via-indigo-500 to-indigo-600 rounded-2xl overflow-hidden cursor-pointer"
-              animation="scale"
-              delay={800}
-            >
-              <div className="absolute inset-0 bg-linear-to-br from-indigo-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Sparkles className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">
-                  Daily Inspiration
-                </p>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          {/* Instagram CTA */}
-          <AnimatedSection
-            className="text-center mt-16"
-            animation="fade-up"
-            delay={400}
-          >
-            <div className="inline-flex items-center space-x-4 bg-linear-to-r from-purple-500 via-pink-500 to-orange-400 p-1 rounded-full">
-              <div className="bg-white rounded-full px-6 py-3 flex items-center space-x-3">
-                <div className="w-6 h-6 bg-linear-to-br from-purple-500 via-pink-500 to-orange-400 rounded-full flex items-center justify-center">
-                  <Camera className="w-3 h-3 text-white" />
-                </div>
-                <span className="font-semibold text-foreground">
-                  Follow @dherbiequake
-                </span>
-              </div>
-            </div>
-            <p className="text-muted-foreground mt-4">
-              For daily insights, tips, and transformation stories
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* Final CTA Section */}
       <section className="py-20 bg-linear-to-br from-primary via-primary/90 to-primary/80 text-white relative overflow-hidden">
@@ -778,7 +588,34 @@ function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+            {/* Instagram CTA */}
+            <AnimatedSection
+              className="text-center mt-16"
+              animation="fade-up"
+              delay={400}
+            >
+              <a
+                href="https://www.instagram.com/dherbiequake"
+                className="inline-block animate-bounce"
+              >
+                <div className="inline-flex items-center space-x-4 bg-linear-to-r from-purple-500 via-pink-500 to-orange-400 p-1 rounded-full">
+                  <div className="bg-white rounded-full px-6 py-3 flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-linear-to-br from-purple-500 via-pink-500 to-orange-400 rounded-full flex items-center justify-center">
+                      <Camera className="w-3 h-3 text-white" />
+                    </div>
+                    <span className="font-semibold text-foreground text-primary">
+                      Follow @dherbiequake
+                    </span>
+                  </div>
+                </div>
+              </a>
+
+              <p className="text-muted-foreground mt-4 text-white">
+                For daily insights, tips, and transformation stories
+              </p>
+            </AnimatedSection>
+
+            {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
               <Button
                 asChild
                 size="lg"
@@ -794,7 +631,7 @@ function Home() {
               >
                 <Link to="/consultation">Book a consultation session</Link>
               </Button>
-            </div>
+            </div> */}
 
             <div className="mt-12 pt-8 border-t border-white/20 px-4">
               <p className="text-base sm:text-lg opacity-75 mb-4 text-center">
