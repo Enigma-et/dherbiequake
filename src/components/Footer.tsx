@@ -1,8 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { Instagram, Linkedin, Mail } from 'lucide-react'
 import Logo from './Logo'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 
 export default function Footer() {
@@ -143,16 +141,6 @@ export default function Footer() {
             <p className="text-gray-300 text-sm">
               Join The Quake Core community for growth insights and updates.
             </p>
-            <div className="space-y-3">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className=" border-gray-700 text-white placeholder-white! focus:border-primary h-12 md:h-10"
-              />
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white h-12 md:h-10">
-                Subscribe
-              </Button>
-            </div>
           </div>
         </div>
 
