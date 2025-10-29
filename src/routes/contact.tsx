@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {
   CheckCircle,
   Instagram,
@@ -22,6 +23,7 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { FormField } from '@/components/ui/form-field'
 import { contactFormSchema, useFormValidation } from '@/lib/validation'
+import { env } from '@/env'
 
 export const Route = createFileRoute('/contact')({
   component: Contact,
@@ -45,6 +47,7 @@ function Contact() {
 
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -59,18 +62,17 @@ function Contact() {
     }
 
     setIsSubmitting(true)
+    setErrorMessage('')
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
+    try {
+      await axios.post(`${env.VITE_API_URL}/contact`, formData)
+      setIsSubmitting(false)
+      setIsSubmitted(true)
       reset()
-    }, 3000)
+    } catch (error) {
+      setIsSubmitting(false)
+      setErrorMessage('Failed to send message. Please try again.')
+    }
   }
 
   return (
@@ -127,137 +129,146 @@ function Contact() {
                       </p>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      {/* Full Name */}
-                      <FormField
-                        label="Your Name"
-                        required
-                        error={touched.name ? errors.name : undefined}
-                      >
-                        <Input
-                          type="text"
-                          value={formData.name}
-                          onChange={(e) =>
-                            setFieldValue('name', e.target.value)
-                          }
-                          onBlur={() => setFieldTouched('name')}
-                          placeholder="Enter your full name"
-                          className={`bg-white border-gray-200 focus:border-primary h-12 ${
-                            touched.name && errors.name
-                              ? 'border-red-500 focus:border-red-500'
-                              : ''
-                          }`}
-                        />
-                      </FormField>
-
-                      {/* Email Address */}
-                      <FormField
-                        label="Email Address"
-                        required
-                        error={touched.email ? errors.email : undefined}
-                      >
-                        <Input
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFieldValue('email', e.target.value)
-                          }
-                          onBlur={() => setFieldTouched('email')}
-                          placeholder="Enter your email address"
-                          className={`bg-white border-gray-200 focus:border-primary h-12 ${
-                            touched.email && errors.email
-                              ? 'border-red-500 focus:border-red-500'
-                              : ''
-                          }`}
-                        />
-                      </FormField>
-
-                      {/* Service Interest */}
-                      <FormField
-                        label="Service Interest"
-                        required
-                        error={touched.service ? errors.service : undefined}
-                      >
-                        <Select
-                          value={formData.service}
-                          onValueChange={(value) =>
-                            setFieldValue('service', value)
-                          }
+                    <>
+                      <form onSubmit={handleSubmit} className="space-y-6">
+                        {/* Full Name */}
+                        <FormField
+                          label="Your Name"
+                          required
+                          error={touched.name ? errors.name : undefined}
                         >
-                          <SelectTrigger
+                          <Input
+                            type="text"
+                            value={formData.name}
+                            onChange={(e) =>
+                              setFieldValue('name', e.target.value)
+                            }
+                            onBlur={() => setFieldTouched('name')}
+                            placeholder="Enter your full name"
                             className={`bg-white border-gray-200 focus:border-primary h-12 ${
-                              touched.service && errors.service
+                              touched.name && errors.name
                                 ? 'border-red-500 focus:border-red-500'
                                 : ''
                             }`}
+                          />
+                        </FormField>
+
+                        {/* Email Address */}
+                        <FormField
+                          label="Email Address"
+                          required
+                          error={touched.email ? errors.email : undefined}
+                        >
+                          <Input
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) =>
+                              setFieldValue('email', e.target.value)
+                            }
+                            onBlur={() => setFieldTouched('email')}
+                            placeholder="Enter your email address"
+                            className={`bg-white border-gray-200 focus:border-primary h-12 ${
+                              touched.email && errors.email
+                                ? 'border-red-500 focus:border-red-500'
+                                : ''
+                            }`}
+                          />
+                        </FormField>
+
+                        {/* Service Interest */}
+                        <FormField
+                          label="Service Interest"
+                          required
+                          error={touched.service ? errors.service : undefined}
+                        >
+                          <Select
+                            value={formData.service}
+                            onValueChange={(value) =>
+                              setFieldValue('service', value)
+                            }
                           >
-                            <SelectValue placeholder="Select a service area..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Brand Strategist">
-                              Brand Strategist
-                            </SelectItem>
-                            <SelectItem value="Marketing Consultant">
-                              Marketing Consultant
-                            </SelectItem>
-                            <SelectItem value="Content Marketer">
-                              Content Marketer
-                            </SelectItem>
-                            <SelectItem value="Creative Director">
-                              Creative Director
-                            </SelectItem>
-                            <SelectItem value="Business Consultant & Manager">
-                              Business Consultant & Manager
-                            </SelectItem>
-                            <SelectItem value="Coaching">Coaching</SelectItem>
-                            <SelectItem value="Community">Community</SelectItem>
-                            <SelectItem value="Consultation Call">
-                              Consultation Call
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </FormField>
+                            <SelectTrigger
+                              className={`bg-white border-gray-200 focus:border-primary h-12 ${
+                                touched.service && errors.service
+                                  ? 'border-red-500 focus:border-red-500'
+                                  : ''
+                              }`}
+                            >
+                              <SelectValue placeholder="Select a service area..." />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Brand Strategist">
+                                Brand Strategist
+                              </SelectItem>
+                              <SelectItem value="Marketing Consultant">
+                                Marketing Consultant
+                              </SelectItem>
+                              <SelectItem value="Content Marketer">
+                                Content Marketer
+                              </SelectItem>
+                              <SelectItem value="Creative Director">
+                                Creative Director
+                              </SelectItem>
+                              <SelectItem value="Business Consultant & Manager">
+                                Business Consultant & Manager
+                              </SelectItem>
+                              <SelectItem value="Coaching">Coaching</SelectItem>
+                              <SelectItem value="Community">
+                                Community
+                              </SelectItem>
+                              <SelectItem value="Consultation Call">
+                                Consultation Call
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </FormField>
 
-                      {/* Message */}
-                      <FormField
-                        label="Your Message"
-                        required
-                        error={touched.message ? errors.message : undefined}
-                      >
-                        <Textarea
-                          value={formData.message}
-                          onChange={(e) =>
-                            setFieldValue('message', e.target.value)
-                          }
-                          onBlur={() => setFieldTouched('message')}
-                          placeholder="Tell me about your project, goals, or how I can help you..."
-                          rows={6}
-                          className={`bg-white border-gray-200 focus:border-primary resize-vertical min-h-[120px] ${
-                            touched.message && errors.message
-                              ? 'border-red-500 focus:border-red-500'
-                              : ''
-                          }`}
-                        />
-                      </FormField>
+                        {/* Message */}
+                        <FormField
+                          label="Your Message"
+                          required
+                          error={touched.message ? errors.message : undefined}
+                        >
+                          <Textarea
+                            value={formData.message}
+                            onChange={(e) =>
+                              setFieldValue('message', e.target.value)
+                            }
+                            onBlur={() => setFieldTouched('message')}
+                            placeholder="Tell me about your project, goals, or how I can help you..."
+                            rows={6}
+                            className={`bg-white border-gray-200 focus:border-primary resize-vertical min-h-[120px] ${
+                              touched.message && errors.message
+                                ? 'border-red-500 focus:border-red-500'
+                                : ''
+                            }`}
+                          />
+                        </FormField>
 
-                      <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 h-12 transition-all duration-300 hover:scale-105 disabled:opacity-50"
-                      >
-                        {isSubmitting ? (
-                          <div className="flex items-center justify-center">
-                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
-                            Sending Message...
-                          </div>
-                        ) : (
-                          <div className="flex items-center justify-center">
-                            <Send className="w-4 h-4 mr-2" />
-                            Send Message
-                          </div>
-                        )}
-                      </Button>
-                    </form>
+                        <Button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 h-12 transition-all duration-300 hover:scale-105 disabled:opacity-50"
+                        >
+                          {isSubmitting ? (
+                            <div className="flex items-center justify-center">
+                              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+                              Sending Message...
+                            </div>
+                          ) : (
+                            <div className="flex items-center justify-center">
+                              <Send className="w-4 h-4 mr-2" />
+                              Send Message
+                            </div>
+                          )}
+                        </Button>
+                      </form>
+                      {errorMessage && (
+                        <div className="text-red-500 mt-4 text-center">
+                          {errorMessage}
+                        </div>
+                      )}
+                    </>
                   )}
                 </CardContent>
               </Card>

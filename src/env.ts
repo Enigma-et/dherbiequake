@@ -10,8 +10,10 @@ export const env = createEnv({
 
   client: {
     VITE_PAYSTACK_API_KEY: z.string().min(1),
-    VITE_APP_ENV: z.enum(['development', 'staging', 'production']).default('development'),
-    VITE_APP_URL: z.string().url().default('http://localhost:3000'),
+    VITE_APP_ENV: z
+      .enum(['development', 'staging', 'production'])
+      .default('development'),
+    VITE_API_URL: z.url(),
     VITE_ANALYTICS_ID: z.string().optional(),
   },
 
