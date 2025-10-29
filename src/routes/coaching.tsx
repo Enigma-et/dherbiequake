@@ -571,7 +571,7 @@ function Coaching() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-primary hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-white w-full sm:w-auto touch-target"
+                className="bg-white text-primary hover:bg-primary hover:text-secondary px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-white w-full sm:w-auto touch-target"
               >
                 <Link to="/consultation">Book Your Free Consultation</Link>
               </Button>
@@ -579,7 +579,7 @@ function Coaching() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto touch-target"
+                className="bg-primary border-3 border-white text-white hover:bg-white hover:text-primary px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto touch-target"
               >
                 <Link to="/about">Learn More About My Approach</Link>
               </Button>

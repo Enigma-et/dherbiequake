@@ -12,24 +12,38 @@ export const Route = createFileRoute('/about')({
 function About() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden animate-seismic-fade-in">
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full animate-multi-ripple"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-primary/10 rounded-full animate-multi-ripple delay-500"></div>
+      {/* Hero Section with Full-Width Background Image */}
+      <section className="relative min-h-[600px] md:min-h-[700px] lg:min-h-[750px] flex items-center bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden animate-seismic-fade-in">
+        {/* Background Image - with proper positioning */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/img/dqsit.jpg"
+            alt="DherbieQuake – Transformation in motion"
+            className="w-full h-full object-cover object-center md:object-[center_20%]"
+            loading="eager"
+          />
+          {/* Subtle gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 md:bg-gradient-to-r md:from-black/70 md:via-black/60 md:to-black/50" />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        {/* Animated ripples - subtle on top of image */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-[1]">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full animate-multi-ripple"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-primary/8 rounded-full animate-multi-ripple delay-500"></div>
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-10 py-20">
           <AnimatedSection
             className="max-w-4xl mx-auto text-center"
             animation="fade-up"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-8 font-montserrat leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 font-montserrat leading-tight drop-shadow-2xl">
               My Journey to
-              <span className="block text-primary">Transformation</span>
+              <span className="block text-primary mt-2">Transformation</span>
             </h1>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+            <div className="w-24 h-1 bg-primary mx-auto mb-6 md:mb-8 shadow-lg"></div>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed max-w-3xl mx-auto drop-shadow-lg">
               Every part of my journey has been about growth: breaking limits,
               moving boldly, and turning purpose into something that transforms
               both life and work.
@@ -38,62 +52,110 @@ function About() {
         </div>
       </section>
 
-      {/* Personal Story Section */}
+      {/* Personal Story Section with Portrait */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <AnimatedSection
-            className="max-w-4xl mx-auto"
-            animation="slide-right"
-            delay={200}
-          >
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8 font-lato">
-                I live for growth, depth, and alignment, the kind that changes
-                how people see themselves and what they are capable of.
-              </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+              {/* Portrait Column */}
+              <AnimatedSection
+                className="lg:col-span-1"
+                animation="slide-left"
+                delay={100}
+              >
+                <div className="relative group sticky top-24">
+                  {/* Decorative frame elements */}
+                  <div className="absolute -top-4 -left-4 w-full h-full bg-primary/10 rounded-2xl -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary/20 rounded-2xl -z-10 group-hover:-translate-x-2 group-hover:-translate-y-2 transition-transform duration-300"></div>
 
-              <p className="text-lg text-foreground leading-relaxed mb-8">
-                I am{' '}
-                <strong className="text-primary">
-                  Alade Oluwapelumi Mercy
-                </strong>{' '}
-                and I go by{' '}
-                <strong className="text-primary">DherbieQuake</strong>. Over the
-                past 5 years, I've journeyed through the business space as an
-                entrepreneur, building and leading <strong>BizVitae LTD</strong>{' '}
-                and other business brands that have shaped how I see growth,
-                leadership, and impact.
-              </p>
+                  {/* Main Portrait Image */}
+                  <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                    <img
+                      src="/img/dqstand.jpg"
+                      alt="Alade Oluwapelumi Mercy – DherbieQuake"
+                      className="w-full h-auto object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    {/* Subtle hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
 
-              <p className="text-lg text-foreground leading-relaxed mb-8">
-                Currently wearing multiple hats and learning firsthand what it
-                means to create structure, strategy, and systems that work.
-                Right now, I manage a dynamic team across different projects,
-                helping brands, businesses and individuals move from just
-                concepts to real, sustainable growth.
-              </p>
+                  {/* Floating name badge */}
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-xl border-2 border-primary/20">
+                    <p className="text-primary font-bold text-sm sm:text-base whitespace-nowrap">
+                      DherbieQuake
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
 
-              <div className="bg-primary/5 rounded-2xl p-8 my-12 border-l-4 border-primary">
-                <p className="text-xl text-primary font-medium italic leading-relaxed">
-                  "I'm passionate about mindset, growth, and showing up with
-                  purpose because business, for me, isn't just what I do, it's
-                  who I've become."
-                </p>
-              </div>
+              {/* Text Content Column */}
+              <AnimatedSection
+                className="lg:col-span-2"
+                animation="slide-right"
+                delay={200}
+              >
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-xl text-muted-foreground leading-relaxed mb-8 font-lato">
+                    I live for growth, depth, and alignment, the kind that
+                    changes how people see themselves and what they are capable
+                    of.
+                  </p>
 
-              <p className="text-lg text-foreground leading-relaxed mb-8">
-                At my core is a mission to help builders and purpose-led minds
-                move boldly with clarity and without limits in life, in
-                business, and in purpose.
-              </p>
+                  <p className="text-lg text-foreground leading-relaxed mb-8">
+                    I am{' '}
+                    <strong className="text-primary">
+                      Alade Oluwapelumi Mercy
+                    </strong>{' '}
+                    and I go by{' '}
+                    <strong className="text-primary">DherbieQuake</strong>. Over
+                    the past 5 years, I've journeyed through the business space
+                    as an entrepreneur, building and leading{' '}
+                    <strong>B2B and B2C</strong> brands in industry such as
+                    Fashion, importation, legal registration, entrepreneurship
+                    support, and branding.
+                  </p>
 
-              <p className="text-lg text-foreground leading-relaxed mb-8">
-                Through my work, every experience gathered, every shift
-                survived, and every space held has led me here: To walk boldly,
-                live purposefully, and grow relentlessly.
-              </p>
+                  <p className="text-lg text-foreground leading-relaxed mb-8">
+                    <strong>
+                      Premsty and BizVitae 
+                    </strong>{' '}
+                    have significantly influenced my
+                    perspectives and shaped how I see growth, leadership, and
+                    impact.
+                  </p>
+
+                  <p className="text-lg text-foreground leading-relaxed mb-8">
+                    Currently wearing multiple hats and learning firsthand what
+                    it means to create structure, strategy, and systems that
+                    work. Right now, I manage a dynamic team across different
+                    projects, helping brands, businesses and individuals move
+                    from just concepts to real, sustainable growth.
+                  </p>
+
+                  <div className="bg-primary/5 rounded-2xl p-8 my-12 border-l-4 border-primary">
+                    <p className="text-xl text-primary font-medium italic leading-relaxed">
+                      "I'm passionate about mindset, growth, and showing up with
+                      purpose because business, for me, isn't just what I do,
+                      it's who I've become."
+                    </p>
+                  </div>
+
+                  <p className="text-lg text-foreground leading-relaxed mb-8">
+                    At my core is a mission to help builders and purpose-led
+                    minds move boldly with clarity and without limits in life,
+                    in business, and in purpose.
+                  </p>
+
+                  <p className="text-lg text-foreground leading-relaxed mb-8">
+                    Through my work, every experience gathered, every shift
+                    survived, and every space held has led me here: To walk
+                    boldly, live purposefully, and grow relentlessly.
+                  </p>
+                </div>
+              </AnimatedSection>
             </div>
-          </AnimatedSection>
+          </div>
         </div>
       </section>
 
