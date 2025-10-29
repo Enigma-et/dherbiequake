@@ -13,9 +13,8 @@ const router = createRouter({
   routeTree,
   context: {},
   defaultPreload: 'intent',
-  scrollRestoration: false,
+
   defaultStructuralSharing: true,
-  defaultPreloadStaleTime: 0,
 })
 
 // Register the router instance for type safety
