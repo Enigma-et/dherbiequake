@@ -18,10 +18,10 @@ function ContentMarketer() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden animate-seismic-fade-in">
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full "></div>
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-primary/10 rounded-full  "></div>
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full animate-multi-ripple"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-primary/10 rounded-full animate-multi-ripple delay-500"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
