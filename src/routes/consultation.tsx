@@ -1,6 +1,8 @@
 import {
   Calendar,
   CheckCircle,
+  ChevronLeft,
+  ChevronRight,
   Clock,
   CreditCard,
   RefreshCw,
@@ -53,6 +55,12 @@ function Consultation() {
   const [bookedSlots, setBookedSlots] = useState<Array<string>>([])
   const [isLoadingSlots, setIsLoadingSlots] = useState(false)
   const [slotsError, setSlotsError] = useState<string | null>(null)
+  const [selectedWeekStart, setSelectedWeekStart] = useState(() => {
+    const today = new Date()
+    const startOfWeek = new Date(today)
+    startOfWeek.setDate(today.getDate() - today.getDay() + 1) // Monday
+    return startOfWeek
+  })
 
   const formValidation = useFormValidation(consultationFormSchema, {
     name: '',
@@ -97,11 +105,54 @@ function Consultation() {
   }
 
   const nextStep = () => {
-    if (currentStep < 7) setCurrentStep(currentStep + 1)
+    if (currentStep < 7) {
+      setCurrentStep(currentStep + 1)
+      // Reset week selection when going back to step 1
+      if (currentStep === 1) {
+        const today = new Date()
+        const startOfWeek = new Date(today)
+        startOfWeek.setDate(today.getDate() - today.getDay() + 1) // Monday
+        setSelectedWeekStart(startOfWeek)
+      }
+    }
   }
 
   const prevStep = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1)
+  }
+
+  const goToPreviousWeek = () => {
+    const newWeekStart = new Date(selectedWeekStart)
+    newWeekStart.setDate(selectedWeekStart.getDate() - 7)
+    setSelectedWeekStart(newWeekStart)
+    // Clear selected date if it's no longer in the visible week
+    if (bookingData.date) {
+      const selectedDate = new Date(bookingData.date + 'T00:00:00')
+      if (
+        selectedDate < newWeekStart ||
+        selectedDate >=
+          new Date(newWeekStart.getTime() + 7 * 24 * 60 * 60 * 1000)
+      ) {
+        updateBookingData({ date: '' })
+      }
+    }
+  }
+
+  const goToNextWeek = () => {
+    const newWeekStart = new Date(selectedWeekStart)
+    newWeekStart.setDate(selectedWeekStart.getDate() + 7)
+    setSelectedWeekStart(newWeekStart)
+    // Clear selected date if it's no longer in the visible week
+    if (bookingData.date) {
+      const selectedDate = new Date(bookingData.date + 'T00:00:00')
+      if (
+        selectedDate < newWeekStart ||
+        selectedDate >=
+          new Date(newWeekStart.getTime() + 7 * 24 * 60 * 60 * 1000)
+      ) {
+        updateBookingData({ date: '' })
+      }
+    }
   }
 
   return (
@@ -429,18 +480,23 @@ function Consultation() {
                 <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20">
                   <CardContent className="p-8">
                     <div className="text-center mb-8">
-                      <h3 className="text-2xl font-bold text-foreground mb-2 font-montserrat">
-                        This Week
+                      <h3 className="text-2xl font-bold text-foreground mb-4 font-montserrat">
+                        Week of{' '}
+                        {(() => {
+                          const formatDate = (date: Date) => {
+                            return date.toLocaleDateString('en-US', {
+                              month: 'long',
+                              day: 'numeric',
+                              year: 'numeric',
+                            })
+                          }
+                          return formatDate(selectedWeekStart)
+                        })()}
                       </h3>
                       <p className="text-muted-foreground">
                         {(() => {
-                          const today = new Date()
-                          const startOfWeek = new Date(today)
-                          startOfWeek.setDate(
-                            today.getDate() - today.getDay() + 1,
-                          ) // Monday
-                          const endOfWeek = new Date(startOfWeek)
-                          endOfWeek.setDate(startOfWeek.getDate() + 6) // Sunday
+                          const endOfWeek = new Date(selectedWeekStart)
+                          endOfWeek.setDate(selectedWeekStart.getDate() + 6) // Sunday
 
                           const formatDate = (date: Date) => {
                             return date.toLocaleDateString('en-US', {
@@ -450,7 +506,7 @@ function Consultation() {
                             })
                           }
 
-                          return `${formatDate(startOfWeek)} - ${formatDate(endOfWeek)}`
+                          return `${formatDate(selectedWeekStart)} - ${formatDate(endOfWeek)}`
                         })()}
                       </p>
                     </div>
@@ -458,15 +514,12 @@ function Consultation() {
                     <div className="grid grid-cols-7 gap-3">
                       {(() => {
                         const today = new Date()
-                        const startOfWeek = new Date(today)
-                        startOfWeek.setDate(
-                          today.getDate() - today.getDay() + 1,
-                        ) // Monday
+                        today.setHours(0, 0, 0, 0) // Reset time for accurate comparison
 
                         const weekDays = []
                         for (let i = 0; i < 7; i++) {
-                          const date = new Date(startOfWeek)
-                          date.setDate(startOfWeek.getDate() + i)
+                          const date = new Date(selectedWeekStart)
+                          date.setDate(selectedWeekStart.getDate() + i)
 
                           const dayName = date.toLocaleDateString('en-US', {
                             weekday: 'short',
@@ -533,6 +586,23 @@ function Consultation() {
                         }
                         return weekDays
                       })()}
+                    </div>
+
+                    <div className="flex justify-center space-x-4 mt-6 mb-6">
+                      <Button
+                        onClick={goToPreviousWeek}
+                        className="flex items-center space-x-2"
+                      >
+                        <ChevronLeft className="w-4 h-4 rounded-full" />
+                        {/* <span>Previous</span> */}
+                      </Button>
+                      <Button
+                        onClick={goToNextWeek}
+                        className="flex items-center space-x-2"
+                      >
+                        {/* <span>Next</span> */}
+                        <ChevronRight className="w-4 h-4" />
+                      </Button>
                     </div>
 
                     {bookingData.date && (
@@ -1852,6 +1922,13 @@ function Consultation() {
                           paymentStatus: undefined,
                         })
                         setCurrentStep(1)
+                        // Reset to current week
+                        const today = new Date()
+                        const startOfWeek = new Date(today)
+                        startOfWeek.setDate(
+                          today.getDate() - today.getDay() + 1,
+                        ) // Monday
+                        setSelectedWeekStart(startOfWeek)
                       }}
                       variant="ghost"
                       className="text-primary hover:text-secondary"
@@ -2010,6 +2087,13 @@ function Consultation() {
                           paymentStatus: undefined,
                         })
                         setCurrentStep(1)
+                        // Reset to current week
+                        const today = new Date()
+                        const startOfWeek = new Date(today)
+                        startOfWeek.setDate(
+                          today.getDate() - today.getDay() + 1,
+                        ) // Monday
+                        setSelectedWeekStart(startOfWeek)
                       }}
                       variant="ghost"
                       className="text-primary hover:text-secondary"
