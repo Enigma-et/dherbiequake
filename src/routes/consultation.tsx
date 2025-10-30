@@ -646,7 +646,7 @@ function Consultation() {
                   onClick={nextStep}
                   disabled={!bookingData.date}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-6 py-3 transition-all duration-300 hover:scale-105 disabled:opacity-50"
+                  className="bg-primary hover:bg-primary/90 text-white px-6 py-3 transition-all duration-300 hover:scale-105 disabled:opacity-50 w-full sm:w-auto"
                 >
                   Continue
                 </Button>
@@ -900,7 +900,7 @@ function Consultation() {
                   onClick={nextStep}
                   disabled={!bookingData.time}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-6 py-3 transition-all duration-300 hover:scale-105 disabled:opacity-50"
+                  className="bg-primary hover:bg-primary/90 text-white px-6 py-3 transition-all duration-300 hover:scale-105 disabled:opacity-50 w-full sm:w-auto"
                 >
                   Continue
                 </Button>
@@ -1191,7 +1191,7 @@ function Consultation() {
                     }
                   }}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-6 py-3 transition-all duration-300 hover:scale-105 disabled:opacity-50"
+                  className="bg-primary hover:bg-primary/90 text-white px-6 py-3 transition-all duration-300 hover:scale-105 disabled:opacity-50 w-full sm:w-auto"
                 >
                   Proceed
                 </Button>
