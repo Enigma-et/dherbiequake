@@ -1523,39 +1523,30 @@ function Consultation() {
                         Your Booking Details
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <CardContent className="space-y-6">
+                      {/* Primary Info - Most Important */}
+                      <div className="bg-white/60 rounded-lg p-4 border border-green-200">
                         <div className="space-y-3">
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">
-                              Duration:
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm text-muted-foreground">
+                              Service
                             </span>
-                            <span className="font-semibold text-foreground">
-                              {bookingData.duration === '30min'
-                                ? '30 Minutes'
-                                : '60 Minutes'}
-                            </span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">
-                              Service:
-                            </span>
-                            <span className="font-semibold text-foreground">
+                            <span className="font-semibold text-foreground text-right">
                               {bookingData.service}
                             </span>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">
-                              Date & Time:
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm text-muted-foreground">
+                              Date & Time
                             </span>
-                            <span className="font-semibold text-foreground">
+                            <span className="font-semibold text-foreground text-right">
                               {(() => {
                                 const date = new Date(
                                   bookingData.date + 'T00:00:00',
                                 )
                                 return date.toLocaleDateString('en-US', {
-                                  weekday: 'long',
-                                  month: 'long',
+                                  weekday: 'short',
+                                  month: 'short',
                                   day: 'numeric',
                                   year: 'numeric',
                                 })
@@ -1563,35 +1554,61 @@ function Consultation() {
                               at {bookingData.time} WAT
                             </span>
                           </div>
-                        </div>
-                        <div className="space-y-3">
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">
-                              Payment Status:
+                          <div className="flex justify-between items-start">
+                            <span className="text-sm text-muted-foreground">
+                              Duration
                             </span>
-                            <span className="font-semibold text-green-600">
-                              <CheckCircle className="w-4 h-4 inline mr-1" />{' '}
-                              Paid - ₦
+                            <span className="font-semibold text-foreground">
                               {bookingData.duration === '30min'
-                                ? '25,000'
-                                : '45,000'}
+                                ? '30 Minutes'
+                                : '60 Minutes'}
                             </span>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">
-                              Payment Reference:
-                            </span>
-                            <span className="font-semibold text-foreground">
-                              {bookingData.paymentReference}
-                            </span>
+                        </div>
+                      </div>
+
+                      {/* Secondary Info - Payment & Contact */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Payment Info */}
+                        <div className="space-y-3">
+                          <h4 className="text-sm font-semibold text-green-800 uppercase tracking-wide">
+                            Payment Details
+                          </h4>
+                          <div className="space-y-2">
+                            <div className="flex items-center text-green-600">
+                              <CheckCircle className="w-4 h-4 mr-2 flex-shrink-0" />
+                              <span className="font-semibold">
+                                Paid - ₦
+                                {bookingData.duration === '30min'
+                                  ? '25,000'
+                                  : '45,000'}
+                              </span>
+                            </div>
+                            <div>
+                              <p className="text-xs text-muted-foreground">
+                                Reference
+                              </p>
+                              <p className="font-mono text-sm text-foreground break-all">
+                                {bookingData.paymentReference}
+                              </p>
+                            </div>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">
-                              Contact:
-                            </span>
-                            <span className="font-semibold text-foreground">
-                              {bookingData.email}
-                            </span>
+                        </div>
+
+                        {/* Contact Info */}
+                        <div className="space-y-3">
+                          <h4 className="text-sm font-semibold text-green-800 uppercase tracking-wide">
+                            Contact Information
+                          </h4>
+                          <div className="space-y-2">
+                            <div>
+                              <p className="text-xs text-muted-foreground">
+                                Email
+                              </p>
+                              <p className="text-sm text-foreground break-all">
+                                {bookingData.email}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1609,16 +1626,16 @@ function Consultation() {
                     <CardContent>
                       <div className="space-y-4">
                         <div className="flex items-start space-x-4">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span className="text-blue-600 font-bold text-sm">
-                              ✓
+                          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span className="text-white font-bold text-sm">
+                              1
                             </span>
                           </div>
-                          <div>
-                            <p className="text-blue-800 font-semibold">
+                          <div className="flex-1">
+                            <p className="text-blue-900 font-semibold mb-1">
                               Confirmation Email
                             </p>
-                            <p className="text-blue-600">
+                            <p className="text-blue-700 text-sm">
                               A detailed confirmation email will be sent to{' '}
                               <strong>{bookingData.email}</strong> within the
                               next few minutes.
@@ -1626,50 +1643,50 @@ function Consultation() {
                           </div>
                         </div>
                         <div className="flex items-start space-x-4">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span className="text-blue-600 font-bold text-sm">
-                              ✓
+                          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span className="text-white font-bold text-sm">
+                              2
                             </span>
                           </div>
-                          <div>
-                            <p className="text-blue-800 font-semibold">
+                          <div className="flex-1">
+                            <p className="text-blue-900 font-semibold mb-1">
                               Meeting Link
                             </p>
-                            <p className="text-blue-600">
+                            <p className="text-blue-700 text-sm">
                               You'll receive a secure meeting link 24 hours
                               before your session via email.
                             </p>
                           </div>
                         </div>
                         <div className="flex items-start space-x-4">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span className="text-blue-600 font-bold text-sm">
-                              ✓
+                          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span className="text-white font-bold text-sm">
+                              3
                             </span>
                           </div>
-                          <div>
-                            <p className="text-blue-800 font-semibold">
+                          <div className="flex-1">
+                            <p className="text-blue-900 font-semibold mb-1">
                               WhatsApp Reminder
                             </p>
-                            <p className="text-blue-600">
+                            <p className="text-blue-700 text-sm">
                               A friendly reminder will be sent to your WhatsApp
                               on the day of your consultation.
                             </p>
                           </div>
                         </div>
                         <div className="flex items-start space-x-4">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span className="text-blue-600 font-bold text-sm">
-                              ✓
+                          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span className="text-white font-bold text-sm">
+                              4
                             </span>
                           </div>
-                          <div>
-                            <p className="text-blue-800 font-semibold">
-                              Rescheduling
+                          <div className="flex-1">
+                            <p className="text-blue-900 font-semibold mb-1">
+                              Need to Reschedule?
                             </p>
-                            <p className="text-blue-600">
-                              If you need to reschedule, simply reply to the
-                              confirmation email or contact us.
+                            <p className="text-blue-700 text-sm">
+                              Simply reply to the confirmation email or contact
+                              us directly.
                             </p>
                           </div>
                         </div>
@@ -1878,7 +1895,7 @@ function Consultation() {
                       onClick={() => setCurrentStep(5)}
                       variant="outline"
                       size="lg"
-                      className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
+                      className="border-2 border-gray-300 text-gray-700 hover:bg-primary px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
                     >
                       <User className="w-4 h-4 inline mr-2" /> Edit Booking
                       Details
@@ -1887,8 +1904,8 @@ function Consultation() {
 
                   <div className="mt-8 text-center">
                     <a
-                      href="mailto:support@dherbiequake.com?subject=Payment%20Issue%20-%20Booking%20Reference"
-                      className="text-primary hover:text-primary/80 font-semibold"
+                      href="mailto:contact@dherbiequake.com?subject=Payment%20Issue%20-%20Booking%20Reference"
+                      className="text-primary hover:text-secondary font-semibold"
                     >
                       <User className="w-4 h-4 inline mr-2" /> Contact Support
                     </a>
@@ -1925,8 +1942,8 @@ function Consultation() {
                           your account.
                         </p>
                         <p className="font-semibold">
-                          Your booking details are saved and you can complete
-                          payment whenever you're ready.
+                          Your booking details are not saved and you can
+                          complete payment whenever you're ready.
                         </p>
                         <p className="text-sm">
                           Note: This time slot is not reserved until payment is
@@ -1949,7 +1966,7 @@ function Consultation() {
                       onClick={() => setCurrentStep(5)}
                       variant="outline"
                       size="lg"
-                      className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
+                      className="border-2 border-gray-300 text-gray-700 hover:bg-primary px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
                     >
                       <User className="w-4 h-4 inline mr-2" /> Edit Booking
                     </Button>
@@ -1973,7 +1990,7 @@ function Consultation() {
                         setCurrentStep(1)
                       }}
                       variant="ghost"
-                      className="text-primary hover:text-primary/80"
+                      className="text-primary hover:text-secondary"
                     >
                       <User className="w-4 h-4 inline mr-2" /> Start Over
                     </Button>
@@ -1986,7 +2003,7 @@ function Consultation() {
       )}
 
       {/* Navigation Buttons */}
-      {currentStep > 1 && currentStep < 7 && (
+      {/* {currentStep > 1 && currentStep < 7 && (
         <section className="py-8 bg-gray-50 border-t">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto flex justify-between">
@@ -1997,16 +2014,16 @@ function Consultation() {
               >
                 Previous
               </Button>
-              {/* <Button
+              <Button
                 onClick={nextStep}
                 className="bg-primary hover:bg-primary/90 text-white px-6 py-3"
               >
                 Continue
-              </Button> */}
+              </Button>
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* Booking Summary Sidebar */}
       <div className="fixed right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-lg shadow-2xl p-4 sm:p-6 w-72 sm:w-80 border hidden lg:block">
