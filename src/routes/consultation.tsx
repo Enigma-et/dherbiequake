@@ -383,20 +383,18 @@ function Consultation() {
                           className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/20 bg-white text-foreground"
                         >
                           <option value="">Select a service area...</option>
-                          <option value="Brand Strategist">
-                            Brand Strategist
+                          <option value="Brand Strategy">Brand Strategy</option>
+                          <option value="Marketing Consultation">
+                            Marketing Consultation
                           </option>
-                          <option value="Marketing Consultant">
-                            Marketing Consultant
+                          <option value="Content Marketing">
+                            Content Marketing
                           </option>
-                          <option value="Content Marketer">
-                            Content Marketer
+                          <option value="Creative Directing">
+                            Creative Directing
                           </option>
-                          <option value="Creative Director">
-                            Creative Director
-                          </option>
-                          <option value="Business Consultant & Manager">
-                            Business Consultant & Manager
+                          <option value="Business Consultation & Management">
+                            Business Consultation & Management
                           </option>
                           <option value="Coaching">Coaching</option>
                           <option value="Community">Community</option>
@@ -412,16 +410,16 @@ function Consultation() {
                             {bookingData.service}
                           </h3>
                           <p className="text-muted-foreground leading-relaxed">
-                            {bookingData.service === 'Brand Strategist' &&
+                            {bookingData.service === 'Brand Strategy' &&
                               'Strategic brand development, messaging, positioning, and identity creation for authentic brand presence.'}
-                            {bookingData.service === 'Marketing Consultant' &&
+                            {bookingData.service === 'Marketing Consultation' &&
                               'Comprehensive marketing strategy, funnel optimization, team development, and growth-driven marketing systems.'}
-                            {bookingData.service === 'Content Marketer' &&
+                            {bookingData.service === 'Content Marketing' &&
                               'Strategic content creation, social media storytelling, and growth-driven content systems that convert.'}
-                            {bookingData.service === 'Creative Director' &&
+                            {bookingData.service === 'Creative Directing' &&
                               'Creative vision leadership, brand alignment across touchpoints, and visual storytelling that creates impact.'}
                             {bookingData.service ===
-                              'Business Consultant & Manager' &&
+                              'Business Consultation & Management' &&
                               'Operational systems, team workflows, process optimization, and structures for sustainable business growth.'}
                             {bookingData.service === 'Coaching' &&
                               'Personal and strategic coaching for purpose-led minds ready to align vision with action and create transformation.'}

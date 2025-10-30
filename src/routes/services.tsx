@@ -53,7 +53,7 @@ function Services() {
             animation="fade-up"
             delay={200}
           >
-            {/* Service 1: Brand Strategist */}
+            {/* Service 1: Brand Strategy */}
             <AnimatedSection animation="scale" delay={100}>
               <Card className="group relative bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -62,7 +62,7 @@ function Services() {
                     <Target className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                    Brand Strategist
+                    Brand Strategy
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     A brand is a voice, a presence, a truth waiting to be
@@ -107,7 +107,7 @@ function Services() {
               </Card>
             </AnimatedSection>
 
-            {/* Service 2: Marketing Consultant */}
+            {/* Service 2: Marketing Consultation */}
             <AnimatedSection animation="scale" delay={200}>
               <Card className="group relative bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -116,7 +116,7 @@ function Services() {
                     <TrendingUp className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                    Marketing Consultant
+                    Marketing Consultation
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     As a Marketing Consultant, I guide brands to build systems
@@ -160,7 +160,7 @@ function Services() {
               </Card>
             </AnimatedSection>
 
-            {/* Service 3: Content Marketer */}
+            {/* Service 3: Content Marketing */}
             <AnimatedSection animation="scale" delay={300}>
               <Card className="group relative bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden ">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -169,7 +169,7 @@ function Services() {
                     <PenTool className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                    Content Marketer
+                    Content Marketing
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     Content is not about posting, it's about positioning. Every
@@ -212,7 +212,7 @@ function Services() {
               </Card>
             </AnimatedSection>
 
-            {/* Service 4: Creative Director */}
+            {/* Service 4: Creative Directing */}
             <AnimatedSection animation="scale" delay={400}>
               <Card className="group relative bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden ">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -221,7 +221,7 @@ function Services() {
                     <Palette className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                    Creative Director
+                    Creative Directing
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     I see creativity as translation turning vision into
@@ -265,7 +265,7 @@ function Services() {
               </Card>
             </AnimatedSection>
 
-            {/* Service 5: Business Consultant & Manager */}
+            {/* Service 5: Business Consultation & Management */}
             <AnimatedSection animation="scale" delay={500}>
               <Card className="group relative bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden ">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -274,7 +274,7 @@ function Services() {
                     <Building className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                    Business Consultant & Manager
+                    Business Consultation & Management
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     A thriving business isn't built on effort alone, it is built

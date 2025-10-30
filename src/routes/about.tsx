@@ -252,7 +252,7 @@ function About() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {/* Service 1: Brand Strategist */}
+              {/* Service 1: Brand Strategy */}
               <AnimatedSection animation="scale" delay={100}>
                 <Card className="group bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                   <CardContent className="p-8">
@@ -260,7 +260,7 @@ function About() {
                       <span className="text-xl font-bold text-primary">1</span>
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                      Brand Strategist
+                      Brand Strategy
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       I help brands find clarity and communicate their value
@@ -278,7 +278,7 @@ function About() {
                 </Card>
               </AnimatedSection>
 
-              {/* Service 2: Marketing Consultant */}
+              {/* Service 2: Marketing Consultation */}
               <AnimatedSection animation="scale" delay={200}>
                 <Card className="group bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                   <CardContent className="p-8">
@@ -286,7 +286,7 @@ function About() {
                       <span className="text-xl font-bold text-primary">2</span>
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                      Marketing Consultant
+                      Marketing Consultation
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       I audit, guide, and optimize marketing efforts to drive
@@ -304,7 +304,7 @@ function About() {
                 </Card>
               </AnimatedSection>
 
-              {/* Service 3: Content Marketer */}
+              {/* Service 3: Content Marketing */}
               <AnimatedSection animation="scale" delay={300}>
                 <Card className="group bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                   <CardContent className="p-8">
@@ -312,7 +312,7 @@ function About() {
                       <span className="text-xl font-bold text-primary">3</span>
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                      Content Marketer
+                      Content Marketing
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       I turn strategy into storytelling that connects, converts,
@@ -329,7 +329,7 @@ function About() {
                 </Card>
               </AnimatedSection>
 
-              {/* Service 4: Creative Director */}
+              {/* Service 4: Creative Directing */}
               <AnimatedSection animation="scale" delay={400}>
                 <Card className="group bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                   <CardContent className="p-8">
@@ -337,7 +337,7 @@ function About() {
                       <span className="text-xl font-bold text-primary">4</span>
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                      Creative Director
+                      Creative Directing
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       I translate ideas into expressions that move people and
@@ -355,7 +355,7 @@ function About() {
                 </Card>
               </AnimatedSection>
 
-              {/* Service 5: Business Consultant & Manager */}
+              {/* Service 5: Business Consultation & Management */}
               <AnimatedSection animation="scale" delay={500}>
                 <Card className="group bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                   <CardContent className="p-8">
@@ -363,7 +363,7 @@ function About() {
                       <span className="text-xl font-bold text-primary">5</span>
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat group-hover:text-primary transition-colors duration-300">
-                      Business Consultant & Manager
+                      Business Consultation & Management
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       I build and refine structures that help businesses operate

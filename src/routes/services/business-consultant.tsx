@@ -27,8 +27,8 @@ function BusinessConsultant() {
               <Building className="w-12 h-12 text-primary" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-8 font-montserrat leading-tight">
-              Business Consultant
-              <span className="block text-primary">& Manager</span>
+              Business Consultation
+              <span className="block text-primary">& Management</span>
             </h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">

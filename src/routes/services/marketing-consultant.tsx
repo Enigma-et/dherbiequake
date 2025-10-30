@@ -34,7 +34,7 @@ function MarketingConsultant() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-8 font-montserrat leading-tight">
               Marketing
-              <span className="block text-primary">Consultant</span>
+              <span className="block text-primary">Consultation</span>
             </h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">

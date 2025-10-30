@@ -106,31 +106,31 @@ export default function Footer() {
                 to="/services/brand-strategist"
                 className="text-gray-300 hover:text-white transition-colors text-sm"
               >
-                Brand Strategist
+                Brand Strategy
               </Link>
               <Link
                 to="/services/marketing-consultant"
                 className="text-gray-300 hover:text-white transition-colors text-sm"
               >
-                Marketing Consultant
+                Marketing Consultation
               </Link>
               <Link
                 to="/services/content-marketer"
                 className="text-gray-300 hover:text-white transition-colors text-sm"
               >
-                Content Marketer
+                Content Marketing
               </Link>
               <Link
                 to="/services/creative-director"
                 className="text-gray-300 hover:text-white transition-colors text-sm"
               >
-                Creative Director
+                Creative Directing
               </Link>
               <Link
                 to="/services/business-consultant"
                 className="text-gray-300 hover:text-white transition-colors text-sm"
               >
-                Business Consultant
+                Business Consultation
               </Link>
             </nav>
           </div>

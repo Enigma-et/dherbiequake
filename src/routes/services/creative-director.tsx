@@ -28,7 +28,7 @@ function CreativeDirector() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-8 font-montserrat leading-tight">
               Creative
-              <span className="block text-primary">Director</span>
+              <span className="block text-primary">Directing</span>
             </h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">

@@ -226,20 +226,20 @@ function Contact() {
                               <SelectValue placeholder="Select a service area..." />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="Brand Strategist">
-                                Brand Strategist
+                              <SelectItem value="Brand Strategy">
+                                Brand Strategy
                               </SelectItem>
-                              <SelectItem value="Marketing Consultant">
-                                Marketing Consultant
+                              <SelectItem value="Marketing Consultation">
+                                Marketing Consultation
                               </SelectItem>
-                              <SelectItem value="Content Marketer">
-                                Content Marketer
+                              <SelectItem value="Content Marketing">
+                                Content Marketing
                               </SelectItem>
-                              <SelectItem value="Creative Director">
-                                Creative Director
+                              <SelectItem value="Creative Directing">
+                                Creative Directing
                               </SelectItem>
-                              <SelectItem value="Business Consultant & Manager">
-                                Business Consultant & Manager
+                              <SelectItem value="Business Consultation & Management">
+                                Business Consultation & Management
                               </SelectItem>
                               <SelectItem value="Coaching">Coaching</SelectItem>
                               <SelectItem value="Community">
