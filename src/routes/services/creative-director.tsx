@@ -63,7 +63,7 @@ function CreativeDirector() {
                 <p className="text-lg text-foreground leading-relaxed">
                   I direct with intention every visual, tone, and texture
                   aligning with purpose. This isn't about making things look
-                  good it's about making them make sense. I begin by
+                  good, it's about making them make sense. I begin by
                   understanding your brand's essence: its story, purpose, and
                   energy. From there, I lead creative execution that embodies
                   that truth.
