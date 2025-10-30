@@ -93,7 +93,7 @@ function Contact() {
             animation="fade-up"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-8 font-montserrat leading-tight">
-              Conatct
+              Contact
               <span className="block text-primary">Me</span>
             </h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>

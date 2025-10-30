@@ -338,7 +338,7 @@ function Services() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               >
-                <Link to="/consultation">Book a Consultation</Link>
+                <Link to="/contact">Contact Me</Link>
               </Button>
               <Button
                 asChild

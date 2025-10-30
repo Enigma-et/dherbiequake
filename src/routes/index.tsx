@@ -66,7 +66,7 @@ function Home() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg w-full sm:w-auto touch-target"
             >
-              <Link to="/services">Explore Services</Link>
+              <Link to="/contact">Contact Me</Link>
             </Button>
             <Button
               asChild
@@ -541,7 +541,7 @@ function Home() {
                           size="lg"
                           className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold"
                         >
-                          <Link to="/consultation">Start Your Journey</Link>
+                          <Link to="/contact">Start Your Journey</Link>
                         </Button>
                       </CardContent>
                     </Card>

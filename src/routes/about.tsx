@@ -49,6 +49,21 @@ function About() {
               both life and work.
             </p>
           </AnimatedSection>
+
+          {/* CTA Buttons */}
+          <AnimatedSection
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 mt-12 md:mt-16"
+            animation="fade-up"
+            delay={300}
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg w-full sm:w-auto touch-target"
+            >
+              <Link to="/contact">Contact Me</Link>
+            </Button>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -117,12 +132,9 @@ function About() {
                   </p>
 
                   <p className="text-lg text-foreground leading-relaxed mb-8">
-                    <strong>
-                      Premsty and BizVitae 
-                    </strong>{' '}
-                    have significantly influenced my
-                    perspectives and shaped how I see growth, leadership, and
-                    impact.
+                    <strong>Premsty and BizVitae</strong> have significantly
+                    influenced my perspectives and shaped how I see growth,
+                    leadership, and impact.
                   </p>
 
                   <p className="text-lg text-foreground leading-relaxed mb-8">
