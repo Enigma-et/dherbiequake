@@ -17,6 +17,14 @@ export const contactFormSchema = z.object({
     .email('Please enter a valid email address')
     .max(254, 'Email address is too long'),
 
+  whatsapp: z
+    .string()
+    .min(1, 'WhatsApp number is required')
+    .refine((value) => {
+      // Use a simple regex to check for international format
+      return /^\+\d{1,4}\d{6,14}$/.test(value)
+    }, 'Please enter a valid international WhatsApp number'),
+
   service: z.string().min(1, 'Please select a service'),
 
   message: z

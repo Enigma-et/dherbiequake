@@ -9,6 +9,8 @@ import {
 } from 'lucide-react'
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -41,6 +43,7 @@ function Contact() {
   } = useFormValidation(contactFormSchema, {
     name: '',
     email: '',
+    whatsapp: '',
     service: '',
     message: '',
   })
@@ -175,6 +178,29 @@ function Contact() {
                                 ? 'border-red-500 focus:border-red-500'
                                 : ''
                             }`}
+                          />
+                        </FormField>
+
+                        {/* WhatsApp Number */}
+                        <FormField
+                          label="WhatsApp Number"
+                          required
+                          error={touched.whatsapp ? errors.whatsapp : undefined}
+                        >
+                          <PhoneInput
+                            international
+                            defaultCountry="NG"
+                            value={formData.whatsapp}
+                            onChange={(value) =>
+                              setFieldValue('whatsapp', value || '')
+                            }
+                            onBlur={() => setFieldTouched('whatsapp')}
+                            className={`bg-white border-gray-200 focus:border-primary h-12 rounded-md px-3 ${
+                              touched.whatsapp && errors.whatsapp
+                                ? 'border-red-500 focus:border-red-500'
+                                : ''
+                            }`}
+                            inputClassName="bg-transparent border-none outline-none w-full h-full"
                           />
                         </FormField>
 
