@@ -19,7 +19,6 @@ function Home() {
   return (
     <div className="min-h-screen bg-linear-to-br from-background via-background to-primary/5">
       {/* Hero Section */}
-
       <section className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden py-12 md:py-0">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-linear-to-br from-background via-background to-primary/10 animate-seismic-fade-in"></div>
@@ -87,7 +86,6 @@ function Home() {
           </div>
         </div>
       </section>
-
       {/* Service Suite Overview Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
@@ -329,21 +327,21 @@ function Home() {
         </div>
       </section>
       {/* Testimonials Carousel Section */}
-      <section className="py-20 bg-linear-to-br from-primary/5 via-background to-primary/10">
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-primary/10">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16" animation="fade-up">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-montserrat">
-              Client Transformations
+              Voices of Impact
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Real stories of growth, clarity, and transformation from those
-              who've experienced the DherbieQuake impact.
+              Real stories from those who've experienced transformation through
+              our work together.
             </p>
           </AnimatedSection>
 
           <AnimatedSection
-            className="max-w-6xl mx-auto"
+            className="max-w-7xl mx-auto"
             animation="fade-up"
             delay={200}
           >
@@ -355,160 +353,204 @@ function Home() {
               className="w-full"
             >
               <CarouselContent className="-ml-2 md:-ml-4">
-                {/* Testimonial 1 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                {/* Testimonial 1 - Aa'ishah Akaje */}
+                <CarouselItem className="pl-2 md:pl-4 basis-full lg:basis-4/5">
                   <AnimatedSection
                     className="h-full"
                     animation="scale"
                     delay={100}
                   >
-                    <Card className="h-full bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                      <CardContent className="p-8">
-                        <div className="flex items-center mb-6">
-                          <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
-                            <span className="text-2xl font-bold text-primary">
-                              S
-                            </span>
+                    <Card className="h-full bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+                      <CardContent className="p-8 md:p-12">
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-8 pb-6 border-b border-gray-100">
+                          <div className="flex items-center">
+                            <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                              <span className="text-3xl font-bold text-primary">
+                                A
+                              </span>
+                            </div>
+                            <div>
+                              <h4 className="text-xl font-bold text-foreground mb-1 font-montserrat">
+                                Aa'ishah Akaje
+                              </h4>
+                              <p className="text-sm text-muted-foreground font-medium">
+                                Social Media Manager
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <h4 className="font-semibold text-foreground">
-                              Sarah Chen
-                            </h4>
-                            <p className="text-sm text-muted-foreground">
-                              Brand Founder, TechFlow
-                            </p>
+                          <div className="flex text-yellow-400 text-xl">
+                            ★★★★★
                           </div>
                         </div>
-                        <blockquote className="text-muted-foreground leading-relaxed mb-4 italic">
-                          "Working with DherbieQuake transformed not just my
-                          brand, but my entire approach to business. The clarity
-                          I gained helped me scale from confusion to a clear $2M
-                          revenue strategy in just 6 months."
-                        </blockquote>
-                        <div className="flex text-primary">
-                          <span className="text-yellow-400">★★★★★</span>
+
+                        {/* Testimonial Content */}
+                        <div className="space-y-6 text-muted-foreground leading-relaxed">
+                          <p className="text-lg font-medium text-foreground italic">
+                            "An exceptional, incredible and selfless leader who
+                            sheds light on our confusion and doubts, who leads
+                            us with all her heart and make sure we execute and
+                            excel in everything we do."
+                          </p>
+
+                          <p>
+                            Should I count the times I've been in some really
+                            personal issues and the only person I could think of
+                            is her? Sometimes when I feel low, I go back to our
+                            old chats. It gives me a ray of hope that if the
+                            woman can do it, so can I.
+                          </p>
+
+                          <p>
+                            You inspire me so much. You taught me a lot of
+                            things, directly and indirectly. I'll always
+                            remember something you sent to me last year which is{' '}
+                            <span className="font-semibold text-primary">
+                              "Stick to the plan, not your mood."
+                            </span>
+                          </p>
+
+                          <p>
+                            Your work ethics, communication skills and humility?
+                            The best!! The way you communicate and criticize me
+                            gently whilst correcting me? Thank you so much.
+                          </p>
+
+                          <div className="pt-4 border-t border-gray-100 mt-6">
+                            <p className="text-primary font-semibold text-lg">
+                              You're an epitome of beauty, knowledge and
+                              intelligence. You shine so bright.
+                            </p>
+                            <p className="mt-3 text-foreground">
+                              My journey isn't complete without you. Thank you
+                              so much for coming into my life.
+                            </p>
+                            <p className="mt-3 font-medium">
+                              You're a <span className="text-primary">S</span>
+                              tar — <span className="text-primary">S</span>tand{' '}
+                              <span className="text-primary">T</span>all{' '}
+                              <span className="text-primary">A</span>nd{' '}
+                              <span className="text-primary">R</span>adiate
+                            </p>
+                          </div>
                         </div>
                       </CardContent>
                     </Card>
                   </AnimatedSection>
                 </CarouselItem>
 
-                {/* Testimonial 2 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                {/* Testimonial 2 - Ariyo Ayomide */}
+                <CarouselItem className="pl-2 md:pl-4 basis-full lg:basis-4/5">
                   <AnimatedSection
                     className="h-full"
                     animation="scale"
                     delay={200}
                   >
-                    <Card className="h-full bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                      <CardContent className="p-8">
-                        <div className="flex items-center mb-6">
-                          <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
-                            <span className="text-2xl font-bold text-primary">
-                              M
-                            </span>
+                    <Card className="h-full bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+                      <CardContent className="p-8 md:p-12">
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-8 pb-6 border-b border-gray-100">
+                          <div className="flex items-center">
+                            <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                              <span className="text-3xl font-bold text-primary">
+                                A
+                              </span>
+                            </div>
+                            <div>
+                              <h4 className="text-xl font-bold text-foreground mb-1 font-montserrat">
+                                Ariyo Ayomide
+                              </h4>
+                              <p className="text-sm text-muted-foreground font-medium">
+                                Motion Designer
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <h4 className="font-semibold text-foreground">
-                              Marcus Rodriguez
-                            </h4>
-                            <p className="text-sm text-muted-foreground">
-                              Creative Director, InnovateLab
-                            </p>
+                          <div className="flex text-yellow-400 text-xl">
+                            ★★★★★
                           </div>
                         </div>
-                        <blockquote className="text-muted-foreground leading-relaxed mb-4 italic">
-                          "The coaching sessions were game-changing.
-                          DherbieQuake helped me find my voice and direction
-                          when I was completely lost. Now I'm leading with
-                          confidence and my team respects my vision."
-                        </blockquote>
-                        <div className="flex text-primary">
-                          <span className="text-yellow-400">★★★★★</span>
+
+                        {/* Testimonial Content */}
+                        <div className="space-y-6 text-muted-foreground leading-relaxed">
+                          <p className="text-lg font-medium text-foreground italic">
+                            "My MAP Journey with DherbieQuake"
+                          </p>
+
+                          <p>
+                            Working with DherbieQuake has honestly been beyond
+                            my expectations. She is incredibly innovative and
+                            has this amazing ability to take ideas and bring
+                            them to life immediately. I have watched her turn
+                            visions into reality with such passion and energy,
+                            and it has been truly inspiring to be part of that
+                            process.
+                          </p>
+
+                          <p className="font-medium text-foreground">
+                            What I love most is that she never boxed my
+                            creativity. She gave me the freedom to truly express
+                            myself through my motion designs, and that means
+                            everything to me as a creative.
+                          </p>
+
+                          <p>
+                            When tweaks were needed, she would give feedback
+                            with so much care and respect. No harsh critiques,
+                            just genuine collaboration that made me better at
+                            what I do and made me feel valued.
+                          </p>
+
+                          <div className="pt-4 border-t border-gray-100 mt-6">
+                            <p className="text-primary font-semibold text-lg">
+                              DherbieQuake is a fantastic leader—the kind that
+                              makes you genuinely love showing up to create.
+                            </p>
+                            <p className="mt-3 text-foreground">
+                              I am so grateful for this journey and everything I
+                              have learned working with her.
+                            </p>
+                          </div>
                         </div>
                       </CardContent>
                     </Card>
                   </AnimatedSection>
                 </CarouselItem>
 
-                {/* Testimonial 3 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                {/* Placeholder for Future Testimonials */}
+                <CarouselItem className="pl-2 md:pl-4 basis-full lg:basis-4/5">
                   <AnimatedSection
                     className="h-full"
                     animation="scale"
                     delay={300}
                   >
-                    <Card className="h-full bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                      <CardContent className="p-8">
-                        <div className="flex items-center mb-6">
-                          <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
-                            <span className="text-2xl font-bold text-primary">
-                              A
-                            </span>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-foreground">
-                              Amara Okafor
-                            </h4>
-                            <p className="text-sm text-muted-foreground">
-                              Business Owner, GreenTech Solutions
-                            </p>
-                          </div>
+                    <Card className="h-full bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-dashed border-primary/30 shadow-lg">
+                      <CardContent className="p-8 md:p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
+                        <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                          <Sparkles className="w-12 h-12 text-primary" />
                         </div>
-                        <blockquote className="text-muted-foreground leading-relaxed mb-4 italic">
-                          "The business strategy work was incredible.
-                          DherbieQuake didn't just give me systems - they gave
-                          me a complete operational framework that scaled my
-                          business by 300% in one year."
-                        </blockquote>
-                        <div className="flex text-primary">
-                          <span className="text-yellow-400">★★★★★</span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </AnimatedSection>
-                </CarouselItem>
-
-                {/* Testimonial 4 */}
-                <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <AnimatedSection
-                    className="h-full"
-                    animation="scale"
-                    delay={400}
-                  >
-                    <Card className="h-full bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                      <CardContent className="p-8">
-                        <div className="flex items-center mb-6">
-                          <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-4">
-                            <span className="text-2xl font-bold text-primary">
-                              J
-                            </span>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-foreground">
-                              James Park
-                            </h4>
-                            <p className="text-sm text-muted-foreground">
-                              Content Creator, DigitalStory Co.
-                            </p>
-                          </div>
-                        </div>
-                        <blockquote className="text-muted-foreground leading-relaxed mb-4 italic">
-                          "The content marketing strategy completely transformed
-                          our engagement. We went from struggling to post
-                          consistently to having a content system that drives
-                          real business results."
-                        </blockquote>
-                        <div className="flex text-primary">
-                          <span className="text-yellow-400">★★★★★</span>
-                        </div>
+                        <h4 className="text-2xl font-bold text-foreground mb-4 font-montserrat">
+                          Your Story Could Be Next
+                        </h4>
+                        <p className="text-muted-foreground text-lg max-w-md mb-8 leading-relaxed">
+                          Join the growing community of individuals and brands
+                          experiencing transformation through purposeful
+                          strategy and authentic growth.
+                        </p>
+                        <Button
+                          asChild
+                          size="lg"
+                          className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold"
+                        >
+                          <Link to="/consultation">Start Your Journey</Link>
+                        </Button>
                       </CardContent>
                     </Card>
                   </AnimatedSection>
                 </CarouselItem>
               </CarouselContent>
-              <CarouselPrevious className="left-0 bg-white/90 hover:bg-white border-primary/20 text-primary hover:text-primary" />
-              <CarouselNext className="right-0 bg-white/90 hover:bg-white border-primary/20 text-primary hover:text-primary" />
+
+              <CarouselPrevious className="left-0 md:-left-12 bg-white/90 hover:bg-white border-primary/20 text-primary hover:text-primary shadow-lg" />
+              <CarouselNext className="right-0 md:-right-12 bg-white/90 hover:bg-white border-primary/20 text-primary hover:text-primary shadow-lg" />
             </Carousel>
           </AnimatedSection>
 
@@ -526,13 +568,12 @@ function Home() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
             >
-              <Link to="/consultation">Start Your Journey</Link>
+              <Link to="/consultation">Book Your Consultation</Link>
             </Button>
           </AnimatedSection>
         </div>
       </section>
       {/* Instagram Feed Section */}
-
       {/* Final CTA Section */}
       <section className="py-20 bg-linear-to-br from-primary via-primary/90 to-primary/80 text-white relative overflow-hidden">
         {/* Background Elements */}

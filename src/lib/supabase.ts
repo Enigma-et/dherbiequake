@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
 import type { Database, Tables, TablesInsert } from '@/schema'
 
-const supabaseUrl: string = import.meta.env.VITE_SUPABASE_URL
-const anonKey: string = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = 'https://cqefrvjfoefkpxsyfasn.supabase.co'
+const anonKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNxZWZydmpmb2Vma3B4c3lmYXNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NjU4NDAsImV4cCI6MjA3NzM0MTg0MH0.Dz9uFG7Q0Pd_eAxukQhoegB1klDhUthW7g51pRVRz04'
 
 export const supabase = createClient<Database>(supabaseUrl, anonKey)
 
