@@ -10,6 +10,7 @@ import {
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import { PaystackButton } from 'react-paystack'
+import axios from 'axios'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
@@ -1352,23 +1353,44 @@ function Consultation() {
                         text={`Pay ₦${bookingData.duration === '30min' ? '25,000' : '45,000'}`}
                         onSuccess={async (reference) => {
                           console.log('Payment successful!', reference)
+
                           // Update booking data with payment reference
                           setBookingData((prev) => ({
                             ...prev,
                             paymentReference: reference.reference,
-                            paymentStatus: 'successful',
+                            paymentStatus: 'successful' as const,
                           }))
 
                           // Insert booking into database
                           setIsInserting(true)
                           setInsertionError(null)
+
                           try {
-                            await insertBooking({
+                            const updatedBookingData: BookingData = {
                               ...bookingData,
                               paymentReference: reference.reference,
-                              paymentStatus: 'successful',
-                            })
+                              paymentStatus: 'successful' as const,
+                            }
+
+                            await insertBooking(updatedBookingData)
                             console.log('Booking inserted successfully')
+
+                            // Send consultation email
+                            const emailResponse = await axios.post(
+                              `${import.meta.env.VITE_API_URL || 'https://api.dherbiequake.com'}/consultation`,
+                              updatedBookingData,
+                            )
+
+                            if (emailResponse.data.success) {
+                              console.log(
+                                'Consultation email sent successfully',
+                              )
+                            } else {
+                              console.error(
+                                'Failed to send consultation email:',
+                                emailResponse.data.error,
+                              )
+                            }
                           } catch (error) {
                             console.error('Failed to insert booking:', error)
                             setInsertionError(
@@ -1380,7 +1402,7 @@ function Consultation() {
                             setIsInserting(false)
                           }
 
-                          // Move to success step regardless of insertion result
+                          // Move to success step
                           setCurrentStep(7)
                         }}
                         onClose={() => {
