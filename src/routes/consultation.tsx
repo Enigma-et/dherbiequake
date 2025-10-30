@@ -477,22 +477,32 @@ function Consultation() {
                           const isSelected =
                             bookingData.date ===
                             date.toISOString().split('T')[0]
+                          const isPastDate = date < today
 
                           weekDays.push(
                             <button
                               key={i}
                               onClick={() =>
+                                !isPastDate &&
                                 updateBookingData({
                                   date: date.toISOString().split('T')[0],
                                 })
                               }
-                              className={`aspect-square rounded-2xl border-2 transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center ${
+                              disabled={isPastDate}
+                              className={`aspect-square rounded-2xl border-2 transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center relative ${
                                 isSelected
                                   ? 'border-primary bg-primary/10 text-primary shadow-lg'
-                                  : isToday
-                                    ? 'border-primary/50 bg-primary/5 text-primary'
-                                    : 'border-gray-200 hover:border-primary/50 hover:bg-primary/5'
+                                  : isPastDate
+                                    ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed opacity-60'
+                                    : isToday
+                                      ? 'border-primary/50 bg-primary/5 text-primary'
+                                      : 'border-gray-200 hover:border-primary/50 hover:bg-primary/5'
                               }`}
+                              title={
+                                isPastDate
+                                  ? 'This date has passed. Please select a future date.'
+                                  : `${dayName}, ${date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`
+                              }
                             >
                               <span className="text-xs font-medium text-muted-foreground mb-1">
                                 {dayName}
@@ -501,11 +511,23 @@ function Consultation() {
                                 className={`text-lg font-bold ${
                                   isSelected || isToday
                                     ? 'text-primary'
-                                    : 'text-foreground'
+                                    : isPastDate
+                                      ? 'text-gray-400'
+                                      : 'text-foreground'
                                 }`}
                               >
                                 {dayNumber}
                               </span>
+                              {isPastDate && (
+                                <div className="absolute -top-1 -right-1 w-5 h-5 bg-gray-400 rounded-full flex items-center justify-center">
+                                  <span className="text-white text-xs">×</span>
+                                </div>
+                              )}
+                              {isSelected && !isPastDate && (
+                                <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-3 h-3 text-white" />
+                                </div>
+                              )}
                             </button>,
                           )
                         }
