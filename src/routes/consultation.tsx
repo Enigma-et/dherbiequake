@@ -16,6 +16,7 @@ import { Separator } from '@/components/ui/separator'
 import { FormField } from '@/components/ui/form-field'
 // import { env } from '@/env'
 import { consultationFormSchema, useFormValidation } from '@/lib/validation'
+import { fetchBookedSlots, insertBooking } from '@/lib/supabase'
 
 export const Route = createFileRoute('/consultation')({
   component: Consultation,
@@ -46,6 +47,11 @@ function Consultation() {
     whatsapp: '',
     message: '',
   })
+  const [insertionError, setInsertionError] = useState<string | null>(null)
+  const [isInserting, setIsInserting] = useState(false)
+  const [bookedSlots, setBookedSlots] = useState<Array<string>>([])
+  const [isLoadingSlots, setIsLoadingSlots] = useState(false)
+  const [slotsError, setSlotsError] = useState<string | null>(null)
 
   const formValidation = useFormValidation(consultationFormSchema, {
     name: '',
@@ -65,6 +71,28 @@ function Consultation() {
       formValidation.setFieldValue('whatsapp', updates.whatsapp)
     if (updates.message !== undefined)
       formValidation.setFieldValue('message', updates.message)
+
+    // Load booked slots when date changes
+    if (updates.date !== undefined) {
+      loadBookedSlots(updates.date)
+    }
+  }
+
+  const loadBookedSlots = async (date: string) => {
+    setIsLoadingSlots(true)
+    setSlotsError(null)
+    try {
+      const slots = await fetchBookedSlots(date)
+      setBookedSlots(slots)
+    } catch (error) {
+      console.error('Failed to load booked slots:', error)
+      setSlotsError(
+        error instanceof Error ? error.message : 'Failed to load availability',
+      )
+      setBookedSlots([]) // Fallback to empty array, showing all slots as available
+    } finally {
+      setIsLoadingSlots(false)
+    }
   }
 
   const nextStep = () => {
@@ -365,6 +393,13 @@ function Consultation() {
                     )
 
                     if (formValidation.validateAll()) {
+                      // Copy validated form data to booking data before proceeding
+                      updateBookingData({
+                        name: formValidation.data.name,
+                        email: formValidation.data.email,
+                        whatsapp: formValidation.data.whatsapp,
+                        message: formValidation.data.message,
+                      })
                       nextStep()
                     }
                   }}
@@ -390,16 +425,48 @@ function Consultation() {
                   {/* Success Hero */}
                   <div className="mb-12">
                     <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle className="w-12 h-12 text-green-600" />
+                      {isInserting ? (
+                        <RefreshCw className="w-12 h-12 text-green-600 animate-spin" />
+                      ) : insertionError ? (
+                        <X className="w-12 h-12 text-red-600" />
+                      ) : (
+                        <CheckCircle className="w-12 h-12 text-green-600" />
+                      )}
                     </div>
                     <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 font-montserrat">
-                      Booking
-                      <span className="block text-green-600">Confirmed!</span>
+                      {isInserting
+                        ? 'Processing'
+                        : insertionError
+                          ? 'Booking Issue'
+                          : 'Booking'}
+                      <span
+                        className={`block ${isInserting ? 'text-blue-600' : insertionError ? 'text-red-600' : 'text-green-600'}`}
+                      >
+                        {isInserting
+                          ? 'Booking...'
+                          : insertionError
+                            ? 'Detected'
+                            : 'Confirmed!'}
+                      </span>
                     </h2>
                     <p className="text-xl text-muted-foreground">
-                      Your consultation has been successfully booked and paid
-                      for.
+                      {isInserting
+                        ? 'Please wait while we save your booking details...'
+                        : insertionError
+                          ? 'Your payment was successful, but we encountered an issue saving your booking. Please contact support.'
+                          : 'Your consultation has been successfully booked and paid for.'}
                     </p>
+                    {insertionError && (
+                      <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                        <p className="text-red-800 text-sm">
+                          <strong>Error:</strong> {insertionError}
+                        </p>
+                        <p className="text-red-600 text-sm mt-2">
+                          Please save this error message and contact support at
+                          support@dherbiequake.com
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Booking Details */}
@@ -566,72 +633,35 @@ function Consultation() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                    <Button
-                      asChild
-                      size="lg"
-                      className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
-                    >
-                      <a
-                        href={(() => {
-                          // Generate Google Calendar link
-                          const title = encodeURIComponent(
-                            `DherbieQuake Consultation - ${bookingData.service}`,
-                          )
-                          const details = encodeURIComponent(
-                            `${bookingData.duration}-minute consultation session with DherbieQuake\n\n` +
-                              `Service: ${bookingData.service}\n` +
-                              `Your message: ${bookingData.message}\n\n` +
-                              `Meeting link will be sent via email 24 hours before the session.\n\n` +
-                              `Payment Reference: ${bookingData.paymentReference}\n` +
-                              `Contact: ${bookingData.email}`,
-                          )
-                          const location = encodeURIComponent(
-                            'Online (Meeting link via email)',
-                          )
+                    {!insertionError && !isInserting && (
+                      <Button
+                        asChild
+                        size="lg"
+                        className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
+                      >
+                        <a
+                          href={(() => {
+                            // Generate Google Calendar link
+                            const title = encodeURIComponent(
+                              `DherbieQuake Consultation - ${bookingData.service}`,
+                            )
+                            const details = encodeURIComponent(
+                              `${bookingData.duration}-minute consultation session with DherbieQuake\n\n` +
+                                `Service: ${bookingData.service}\n` +
+                                `Your message: ${bookingData.message}\n\n` +
+                                `Meeting link will be sent via email 24 hours before the session.\n\n` +
+                                `Payment Reference: ${bookingData.paymentReference}\n` +
+                                `Contact: ${bookingData.email}`,
+                            )
+                            const location = encodeURIComponent(
+                              'Online (Meeting link via email)',
+                            )
 
-                          // Convert to Google Calendar date format
-                          const startDateTime = (() => {
-                            const date = new Date(
-                              bookingData.date + 'T00:00:00',
-                            )
-                            const year = date.getFullYear()
-                            const month = String(date.getMonth() + 1).padStart(
-                              2,
-                              '0',
-                            )
-                            const day = String(date.getDate()).padStart(2, '0')
-                            const timeParts =
-                              bookingData.time.match(/(\d+):(\d+) (AM|PM)/)
-                            if (timeParts) {
-                              let hours = parseInt(timeParts[1])
-                              const minutes = timeParts[2]
-                              const ampm = timeParts[3]
-                              if (ampm === 'PM' && hours !== 12) hours += 12
-                              if (ampm === 'AM' && hours === 12) hours = 0
-                              return `${year}${month}${day}T${String(hours).padStart(2, '0')}${minutes}00Z`
-                            }
-                            return ''
-                          })()
-
-                          const endDateTime = (() => {
-                            const durationMinutes =
-                              bookingData.duration === '30min' ? 30 : 60
-                            const date = new Date(
-                              bookingData.date + 'T00:00:00',
-                            )
-                            const timeParts =
-                              bookingData.time.match(/(\d+):(\d+) (AM|PM)/)
-                            if (timeParts) {
-                              let hours = parseInt(timeParts[1])
-                              let minutes = parseInt(timeParts[2])
-                              const ampm = timeParts[3]
-                              if (ampm === 'PM' && hours !== 12) hours += 12
-                              if (ampm === 'AM' && hours === 12) hours = 0
-                              minutes += durationMinutes
-                              if (minutes >= 60) {
-                                hours += Math.floor(minutes / 60)
-                                minutes = minutes % 60
-                              }
+                            // Convert to Google Calendar date format
+                            const startDateTime = (() => {
+                              const date = new Date(
+                                bookingData.date + 'T00:00:00',
+                              )
                               const year = date.getFullYear()
                               const month = String(
                                 date.getMonth() + 1,
@@ -640,20 +670,75 @@ function Consultation() {
                                 2,
                                 '0',
                               )
-                              return `${year}${month}${day}T${String(hours).padStart(2, '0')}${String(minutes).padStart(2, '0')}00Z`
-                            }
-                            return ''
-                          })()
+                              const timeParts =
+                                bookingData.time.match(/(\d+):(\d+) (AM|PM)/)
+                              if (timeParts) {
+                                let hours = parseInt(timeParts[1])
+                                const minutes = timeParts[2]
+                                const ampm = timeParts[3]
+                                if (ampm === 'PM' && hours !== 12) hours += 12
+                                if (ampm === 'AM' && hours === 12) hours = 0
+                                return `${year}${month}${day}T${String(hours).padStart(2, '0')}${minutes}00Z`
+                              }
+                              return ''
+                            })()
 
-                          return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateTime}/${endDateTime}&details=${details}&location=${location}`
-                        })()}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                            const endDateTime = (() => {
+                              const durationMinutes =
+                                bookingData.duration === '30min' ? 30 : 60
+                              const date = new Date(
+                                bookingData.date + 'T00:00:00',
+                              )
+                              const timeParts =
+                                bookingData.time.match(/(\d+):(\d+) (AM|PM)/)
+                              if (timeParts) {
+                                let hours = parseInt(timeParts[1])
+                                let minutes = parseInt(timeParts[2])
+                                const ampm = timeParts[3]
+                                if (ampm === 'PM' && hours !== 12) hours += 12
+                                if (ampm === 'AM' && hours === 12) hours = 0
+                                minutes += durationMinutes
+                                if (minutes >= 60) {
+                                  hours += Math.floor(minutes / 60)
+                                  minutes = minutes % 60
+                                }
+                                const year = date.getFullYear()
+                                const month = String(
+                                  date.getMonth() + 1,
+                                ).padStart(2, '0')
+                                const day = String(date.getDate()).padStart(
+                                  2,
+                                  '0',
+                                )
+                                return `${year}${month}${day}T${String(hours).padStart(2, '0')}${String(minutes).padStart(2, '0')}00Z`
+                              }
+                              return ''
+                            })()
+
+                            return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateTime}/${endDateTime}&details=${details}&location=${location}`
+                          })()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Calendar className="w-4 h-4 inline mr-2" /> Add to
+                          Google Calendar
+                        </a>
+                      </Button>
+                    )}
+                    {insertionError && (
+                      <Button
+                        asChild
+                        size="lg"
+                        className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
                       >
-                        <Calendar className="w-4 h-4 inline mr-2" /> Add to
-                        Google Calendar
-                      </a>
-                    </Button>
+                        <a
+                          href={`mailto:support@dherbiequake.com?subject=Booking%20Insertion%20Error&body=Payment%20Reference:%20${bookingData.paymentReference}%0AError:%20${encodeURIComponent(insertionError)}`}
+                        >
+                          <User className="w-4 h-4 inline mr-2" /> Contact
+                          Support
+                        </a>
+                      </Button>
+                    )}
                     <Button
                       asChild
                       variant="outline"
@@ -1001,56 +1086,145 @@ function Consultation() {
                   {/* PHASE 1 NOTE: Using Paystack test public key */}
                   {/* PHASE 2 TODO: Replace with live public key from Paystack dashboard */}
                   {/* Environment variable recommended: process.env.VITE_PAYSTACK_PUBLIC_KEY */}
-                  <PaystackButton
-                    reference={`DQ-${new Date().getTime()}`}
-                    email={bookingData.email}
-                    amount={
+                  {(() => {
+                    // Validate required Paystack parameters
+                    const reference = `DQ-${new Date().getTime()}`
+                    const email = bookingData.email
+                    const amount =
                       bookingData.duration === '30min' ? 2500000 : 4500000
+                    const publicKey = import.meta.env.VITE_PAYSTACK_API_KEY
+
+                    // Console logging for debugging
+                    console.log('Paystack Parameters:', {
+                      reference,
+                      email,
+                      amount,
+                      publicKey: publicKey ? 'Present' : 'Missing',
+                      duration: bookingData.duration,
+                      service: bookingData.service,
+                      date: bookingData.date,
+                      time: bookingData.time,
+                    })
+
+                    // Validation checks
+                    const errors = []
+                    if (!email || !email.includes('@')) {
+                      errors.push('Valid email address is required')
                     }
-                    publicKey={import.meta.env.VITE_PAYSTACK_API_KEY}
-                    metadata={{
-                      custom_fields: [
-                        {
-                          display_name: 'Service',
-                          variable_name: 'service',
-                          value: bookingData.service,
-                        },
-                        {
-                          display_name: 'Duration',
-                          variable_name: 'duration',
-                          value: `${bookingData.duration} minutes`,
-                        },
-                        {
-                          display_name: 'Date',
-                          variable_name: 'date',
-                          value: bookingData.date,
-                        },
-                        {
-                          display_name: 'Time',
-                          variable_name: 'time',
-                          value: bookingData.time,
-                        },
-                      ],
-                    }}
-                    text={`Pay ₦${bookingData.duration === '30min' ? '25,000' : '45,000'}`}
-                    onSuccess={(reference) => {
-                      console.log('Payment successful!', reference)
-                      // Update booking data with payment reference
-                      setBookingData((prev) => ({
-                        ...prev,
-                        paymentReference: reference.reference,
-                        paymentStatus: 'successful',
-                      }))
-                      // Move to success step
-                      setCurrentStep(7)
-                    }}
-                    // onClose={() => {
-                    //   console.log('Payment modal closed')
-                    //   // Optional: Show message to user
-                    //   alert('Payment was not completed. You can try again when ready.')
-                    // }}
-                    className="w-full max-w-md px-8 py-4 bg-[#006BED] hover:bg-[#0056c4] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-lg"
-                  />
+                    if (amount <= 0) {
+                      errors.push('Valid amount is required')
+                    }
+                    if (!publicKey) {
+                      errors.push('Paystack public key is missing')
+                    }
+                    if (!reference) {
+                      errors.push('Payment reference is required')
+                    }
+
+                    if (errors.length > 0) {
+                      console.error('Paystack validation errors:', errors)
+                      return (
+                        <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                          <h3 className="text-red-800 font-bold mb-2">
+                            Payment Configuration Error
+                          </h3>
+                          <ul className="text-red-700 text-sm space-y-1">
+                            {errors.map((error, index) => (
+                              <li key={index}>• {error}</li>
+                            ))}
+                          </ul>
+                          <p className="text-red-600 text-sm mt-4">
+                            Please go back and ensure all booking details are
+                            complete, or contact support.
+                          </p>
+                          <Button
+                            onClick={() => setCurrentStep(5)}
+                            variant="outline"
+                            className="mt-4 border-red-300 text-red-700 hover:bg-red-50"
+                          >
+                            Back to Booking Details
+                          </Button>
+                        </div>
+                      )
+                    }
+
+                    return (
+                      <PaystackButton
+                        reference={reference}
+                        email={email}
+                        amount={amount}
+                        publicKey={publicKey}
+                        metadata={{
+                          custom_fields: [
+                            {
+                              display_name: 'Service',
+                              variable_name: 'service',
+                              value: bookingData.service,
+                            },
+                            {
+                              display_name: 'Duration',
+                              variable_name: 'duration',
+                              value: `${bookingData.duration} minutes`,
+                            },
+                            {
+                              display_name: 'Date',
+                              variable_name: 'date',
+                              value: bookingData.date,
+                            },
+                            {
+                              display_name: 'Time',
+                              variable_name: 'time',
+                              value: bookingData.time,
+                            },
+                          ],
+                        }}
+                        text={`Pay ₦${bookingData.duration === '30min' ? '25,000' : '45,000'}`}
+                        onSuccess={async (reference) => {
+                          console.log('Payment successful!', reference)
+                          // Update booking data with payment reference
+                          setBookingData((prev) => ({
+                            ...prev,
+                            paymentReference: reference.reference,
+                            paymentStatus: 'successful',
+                          }))
+
+                          // Insert booking into database
+                          setIsInserting(true)
+                          setInsertionError(null)
+                          try {
+                            await insertBooking({
+                              ...bookingData,
+                              paymentReference: reference.reference,
+                              paymentStatus: 'successful',
+                            })
+                            console.log('Booking inserted successfully')
+                          } catch (error) {
+                            console.error('Failed to insert booking:', error)
+                            setInsertionError(
+                              error instanceof Error
+                                ? error.message
+                                : 'Unknown error occurred',
+                            )
+                          } finally {
+                            setIsInserting(false)
+                          }
+
+                          // Move to success step regardless of insertion result
+                          setCurrentStep(7)
+                        }}
+                        onClose={() => {
+                          console.log('Payment modal closed')
+                          // Handle payment cancellation
+                          setBookingData((prev) => ({
+                            ...prev,
+                            paymentStatus: 'cancelled',
+                          }))
+                          setCurrentStep(7)
+                        }}
+                        className="w-full max-w-md px-8 py-4 bg-[#006BED] hover:bg-[#0056c4] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-lg"
+                      />
+                    )
+                  })()}
 
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <svg
@@ -1133,21 +1307,58 @@ function Consultation() {
               <div className="max-w-3xl mx-auto">
                 <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20">
                   <CardContent className="p-8">
-                    {/* Mock Booked Slots Data */}
-                    {(() => {
-                      const mockBookedSlots = [
-                        { date: '2025-10-27', time: '11:00 AM' },
-                        { date: '2025-10-27', time: '2:00 PM' },
-                        { date: '2025-10-28', time: '10:00 AM' },
-                        { date: '2025-10-28', time: '1:00 PM' },
-                        { date: '2025-10-29', time: '3:00 PM' },
-                        { date: '2025-10-30', time: '11:00 AM' },
-                        { date: '2025-10-30', time: '4:00 PM' },
-                        { date: '2025-10-31', time: '10:00 AM' },
-                        { date: '2025-10-31', time: '11:00 AM' },
-                        { date: '2025-10-31', time: '2:00 PM' },
-                      ]
+                    {/* Availability Status */}
+                    {slotsError && (
+                      <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <div className="flex items-center space-x-2">
+                          <svg
+                            className="w-5 h-5 text-yellow-600"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          <p className="text-yellow-800 font-semibold">
+                            Availability Check Failed
+                          </p>
+                        </div>
+                        <p className="text-yellow-700 text-sm mt-1">
+                          {slotsError}. Showing all time slots as available.
+                          Please proceed with caution.
+                        </p>
+                      </div>
+                    )}
 
+                    {isLoadingSlots && (
+                      <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                        <div className="flex items-center space-x-2">
+                          <RefreshCw className="w-5 h-5 text-blue-600 animate-spin" />
+                          <p className="text-blue-800 font-semibold">
+                            Checking Availability...
+                          </p>
+                        </div>
+                        <p className="text-blue-700 text-sm mt-1">
+                          Loading booked slots for{' '}
+                          {(() => {
+                            const date = new Date(
+                              bookingData.date + 'T00:00:00',
+                            )
+                            return date.toLocaleDateString('en-US', {
+                              weekday: 'long',
+                              month: 'long',
+                              day: 'numeric',
+                              year: 'numeric',
+                            })
+                          })()}
+                        </p>
+                      </div>
+                    )}
+
+                    {(() => {
                       const allTimeSlots = [
                         '10:00 AM',
                         '11:00 AM',
@@ -1159,11 +1370,7 @@ function Consultation() {
                       ]
 
                       const isTimeBooked = (time: string) => {
-                        return mockBookedSlots.some(
-                          (slot) =>
-                            slot.date === bookingData.date &&
-                            slot.time === time,
-                        )
+                        return bookedSlots.includes(time)
                       }
 
                       const selectedDate = new Date(
