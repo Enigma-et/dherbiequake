@@ -302,7 +302,7 @@ function Home() {
             delay={400}
           >
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              There is always a room for improvement growth and transformation.
+              There is always a room for improvement, growth, and transformation.
               Whether it is for you, your brand, or your business, I help you
               find the alignment, strategy, and systems that move you forward.
             </p>
