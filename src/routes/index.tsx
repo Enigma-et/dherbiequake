@@ -516,6 +516,278 @@ function Home() {
                   </AnimatedSection>
                 </CarouselItem>
 
+                {/* Testimonial 3 - Animasahun Boluwatife */}
+                <CarouselItem className="pl-2 md:pl-4 basis-full lg:basis-4/5">
+                  <AnimatedSection
+                    className="h-full"
+                    animation="scale"
+                    delay={300}
+                  >
+                    <Card className="h-full bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+                      <CardContent className="p-8 md:p-12">
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-8 pb-6 border-b border-gray-100">
+                          <div className="flex items-center">
+                            <img src="/img/Animasahun.jpeg" alt="Animasahun Boluwatife" className="w-12 h-12 rounded-full object-cover mr-6" />
+                            <div>
+                              <h4 className="text-xl font-bold text-foreground mb-1 font-montserrat">
+                                Animasahun Boluwatife
+                              </h4>
+                              <p className="text-sm text-muted-foreground font-medium">
+                                Email marketer and copywriter
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex text-yellow-400 text-xl">
+                            ★★★★★
+                          </div>
+                        </div>
+
+                        {/* Testimonial Content */}
+                        <div className="space-y-6 text-muted-foreground leading-relaxed">
+                          <p className="text-lg font-medium text-foreground italic">
+                            "Review for DherbieQuake's Consultation Call & Personal Coaching"
+                          </p>
+
+                          <p>
+                            My consultation with <i>DherbieQuake</i> felt like someone quietly turning on a light in a room I didn't even realize was dim. Nothing about the session was generic or recycled. She didn't give me motivational lines, she helped me notice the little things I had been stepping over, the patterns I assumed I just had to "manage" or outgrow with time.
+                          </p>
+
+                          <p>
+                            What I value most is how she took the noise in my head and translated it into actions that actually fit me... my pace, my schedule, and my reality. No forced routines. No overwhelming to-do lists. Just flexible, practical steps that still produce real results.
+                          </p>
+
+                          <p>
+                            Immediately after the call, I found myself doing deep filtering, unfollowing distractions, cutting off excess, rearranging my space and energy, and finally giving my ideas room to breathe without guilt. That clarity didn't come by accident; it came from the way DherbieQuake guided me.
+                          </p>
+
+                          <p>
+                            Her coaching goes far beyond advice. It's the kind that shifts something inside you, quietly but permanently. Tailored, thoughtful, and rooted in genuine understanding. And the impact started showing almost immediately.
+                          </p>
+
+                          <p>
+                            This is just my first proper review, I know I'll still have more to say as everything continues to unfold, but this one needed to be said now:
+                          </p>
+
+                          <p className="text-primary font-semibold text-lg">
+                            <i>She's called DherbieQuake for a reason, her guidance shifts foundations, shakes off doubt, and moves the silent things inside you until clarity settles. Thank you, Cap'n DQ.</i> 🫡
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                </CarouselItem>
+
+                {/* Testimonial 4 - Alimat, leemah gem. */}
+                <CarouselItem className="pl-2 md:pl-4 basis-full lg:basis-4/5">
+                  <AnimatedSection
+                    className="h-full"
+                    animation="scale"
+                    delay={400}
+                  >
+                    <Card className="h-full bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+                      <CardContent className="p-8 md:p-12">
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-8 pb-6 border-b border-gray-100">
+                          <div className="flex items-center">
+                            <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                              <span className="text-3xl font-bold text-primary">
+                                A
+                              </span>
+                            </div>
+                            <div>
+                              <h4 className="text-xl font-bold text-foreground mb-1 font-montserrat">
+                                Alimat
+                              </h4>
+                              <p className="text-sm text-muted-foreground font-medium">
+                                Leemah Gem
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex text-yellow-400 text-xl">
+                            ★★★★★
+                          </div>
+                        </div>
+
+                        {/* Testimonial Content */}
+                        <div className="space-y-6 text-muted-foreground leading-relaxed">
+                          <p>
+                            I first got connected to <i>DherbieQuake</i> sometime late last year, through MagAde (Magnificent Adebola). I think it might have been around her birthday. From that moment on, being in her digital space has been nothing short of transformational for me.
+                          </p>
+
+                          <p>
+                            Her content has consistently offered me practical lessons, motivation, and everything growth-related. I remember one particular day when I was fortunate to have a call with <i>DherbieQuake</i>, though it ended up being a mix of texts and voice notes due to timing.
+                          </p>
+
+                          <p>
+                            Still, the impact of that conversation stuck with me. She said things that shifted my entire perspective.
+                          </p>
+
+                          <p>
+                            Since then, I've started writing more, managing my time better, and using journals more intentionally one for each key area of my life.
+                          </p>
+
+                          <p>
+                            <i>DherbieQuake</i> even introduced me to a 7 part planning framework that brought so much direction. I can't quite remember if it was from one of her books or a session, but it's something I still apply.
+                          </p>
+
+                          <p>
+                            Even when I lost access for a while, she supported me until I got a new phone and when I returned, she welcomed me back without hesitation. That meant so much.
+                          </p>
+
+                          <p>
+                            There is so much I've gained just by having access to <i>DherbieQuake's</i> world, and I look forward to learning even more. I also hope to deepen that access soon.
+                          </p>
+
+                          <p className="text-primary font-semibold text-lg">
+                            Thank you so much, <i>DherbieQuake</i>. May God bless you with wisdom, resources, and continued impact.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                </CarouselItem>
+
+                {/* Testimonial 5 - Aduragbemi */}
+                <CarouselItem className="pl-2 md:pl-4 basis-full lg:basis-4/5">
+                  <AnimatedSection
+                    className="h-full"
+                    animation="scale"
+                    delay={500}
+                  >
+                    <Card className="h-full bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+                      <CardContent className="p-8 md:p-12">
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-8 pb-6 border-b border-gray-100">
+                          <div className="flex items-center">
+                            <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                              <span className="text-3xl font-bold text-primary">
+                                A
+                              </span>
+                            </div>
+                            <div>
+                              <h4 className="text-xl font-bold text-foreground mb-1 font-montserrat">
+                                Aduragbemi
+                              </h4>
+                              <p className="text-sm text-muted-foreground font-medium">
+                                Personal Growth Advocate
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex text-yellow-400 text-xl">
+                            ★★★★★
+                          </div>
+                        </div>
+
+                        {/* Testimonial Content */}
+                        <div className="space-y-6 text-muted-foreground leading-relaxed">
+                          <p>
+                            My transformation journey began the moment I encountered DQ, <i>Dherbie Quake — the quake that sparks you into motion.</i>
+                          </p>
+
+                          <p>
+                            She is a Coach who equips young minds ready to leave their comfort zones and elevate in all areas of life. What she offers isn't just motivation; it's priceless values that reshape you from the inside out, giving you real control over yourself.
+                          </p>
+
+                          <p>
+                            I won't reveal all the values here, you truly need to experience them yourself but I urge you to connect with her, even if just for a limited time, and decide whether to cling to her guidance or not. If you're intentional about growing, you'll want to stay with her for good.
+                          </p>
+
+                          <p>
+                            Before meeting her, I was mastered by procrastination, inconsistency, and a lack of focus and discipline. Life felt heavy, and progress seemed impossible. But within weeks of connecting with DQ, she deposited values like discipline into my life. With her strong support, I started doing things I once found hard, it felt nothing short of miraculous.
+                          </p>
+
+                          <p>
+                            Now, I am the master of myself: <strong>focused</strong>, <strong>disciplined</strong>, <strong>consistent</strong>, and <strong>timely</strong>. From this present self, a vibrant and amazing future is clearly visible and guaranteed.
+                          </p>
+
+                          <p>
+                            If you truly want to grow, in habits, business, work, or identity, connect with Dherbie Quake. Leave that stagnant zone and elevate. It's never too late.
+                          </p>
+
+                          <p className="text-primary font-semibold text-lg">
+                            I share this review so others can experience this change too, and I encourage you to invest in DherbieQuake's service, it's a decision that will reshape your life.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                </CarouselItem>
+
+                {/* Testimonial 6 - Urudinachi Joseph */}
+                <CarouselItem className="pl-2 md:pl-4 basis-full lg:basis-4/5">
+                  <AnimatedSection
+                    className="h-full"
+                    animation="scale"
+                    delay={600}
+                  >
+                    <Card className="h-full bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+                      <CardContent className="p-8 md:p-12">
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-8 pb-6 border-b border-gray-100">
+                          <div className="flex items-center">
+                            <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                              <span className="text-3xl font-bold text-primary">
+                                U
+                              </span>
+                            </div>
+                            <div>
+                              <h4 className="text-xl font-bold text-foreground mb-1 font-montserrat">
+                                Urudinachi Joseph
+                              </h4>
+                              <p className="text-sm text-muted-foreground font-medium">
+                                Graphics designer
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex text-yellow-400 text-xl">
+                            ★★★★★
+                          </div>
+                        </div>
+
+                        {/* Testimonial Content */}
+                        <div className="space-y-6 text-muted-foreground leading-relaxed">
+                          <p>
+                            Since I reconnected with DherbieQuake in June this year, honestly, it's been one of the best decisions I've made for my growth journey.
+                          </p>
+
+                          <p>
+                            What I love most about her is how real she is. She doesn't just show us how far she has come, she actually takes us through every step of her journey. She shares her failures just as openly as her successes, and that has taught me something so important: growth doesn't happen by magic. It takes consistency, it takes work, and sometimes it means learning from what didn't go right.
+                          </p>
+
+                          <p>
+                            She has helped me see that everything is achievable. I used to think success just happened to some people, but watching her and learning from her has shown me it's about the steps she takes every single day. Her belief that "there's always room for improvement" really stuck with me. She has this amazing way of seeing the better side in people and inspiring us to bring out our best.
+                          </p>
+
+                          <p>
+                            What really stands out is how open she is to help. She teaches young businesses like mine, she shares her work ethics, she talks about lifestyle and balance. She gives so much of herself. She doesn't gatekeep her knowledge; she genuinely wants others to succeed too.
+                          </p>
+
+                          <p>
+                            Since June, my growth journey has been so much easier because of her. She has made me realize I can do this, and she has shown me exactly how.
+                          </p>
+
+                          <p>
+                            And like she always says, it's left for me to act because the result is seen when the action is taken.
+                          </p>
+
+                          <p className="text-primary font-semibold text-lg">
+                            Thank you for being someone who doesn't just talk about growth but actually inspires and guides others through it.
+                          </p>
+
+                          <p className="text-primary font-semibold text-lg">
+                            May God continue to bless her with much more strength and wisdom.
+                          </p>
+
+                          <p className="text-primary font-semibold text-lg">
+                            Thank you so much, Coach DQ.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                </CarouselItem>
+
                 {/* Placeholder for Future Testimonials */}
                 <CarouselItem className="pl-2 md:pl-4 basis-full lg:basis-4/5">
                   <AnimatedSection
