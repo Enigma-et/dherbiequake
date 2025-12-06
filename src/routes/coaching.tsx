@@ -6,6 +6,7 @@ import {
   Phone,
   Sprout,
   Target,
+  Users,
 } from 'lucide-react'
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { AnimatedSection } from '@/components/AnimatedSection'
@@ -77,7 +78,7 @@ function Coaching() {
               </div>
             </AnimatedSection>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
               <AnimatedSection animation="scale" delay={200}>
                 <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg h-full">
                   <CardContent className="p-8 text-center">
@@ -112,12 +113,28 @@ function Coaching() {
                   </CardContent>
                 </Card>
               </AnimatedSection>
+
+              <AnimatedSection animation="scale" delay={400}>
+                <Card className="bg-gradient-to-br from-background to-primary/5 border-0 shadow-lg h-full">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Users className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat">
+                      Mentorship
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      It's as important as mentorship, and it's the bridge to make mentorship meaningful. Every conversation, session and assignment builds traction.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
 
             <AnimatedSection
               className="text-center"
               animation="fade-up"
-              delay={400}
+              delay={500}
             >
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 Having a coach isn't optional, it's wise. It's bold. It's
