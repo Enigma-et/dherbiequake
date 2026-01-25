@@ -124,7 +124,9 @@ function Coaching() {
                       Mentorship
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      It's as important as mentorship, and it's the bridge to make mentorship meaningful. Every conversation, session and assignment builds traction.
+                      It's as important as mentorship, and it's the bridge to
+                      make mentorship meaningful. Every conversation, session
+                      and assignment builds traction.
                     </p>
                   </CardContent>
                 </Card>
@@ -429,10 +431,18 @@ function Coaching() {
                       <h3 className="text-2xl font-bold text-foreground mb-2 font-montserrat">
                         3-Month Experience
                       </h3>
-                      <p className="text-primary text-lg font-semibold">
+                      <p className="text-primary text-lg font-semibold mb-4">
                         For clarity, direction, and quick progress
                       </p>
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <span className="text-4xl font-bold text-foreground font-montserrat">
+                          ₦80,000
+                        </span>
+                      </div>
+                      
                     </div>
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-6"></div>
 
                     <div className="space-y-4 mb-8">
                       <div className="flex items-center">
@@ -473,7 +483,7 @@ function Coaching() {
                       asChild
                       className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105"
                     >
-                      <Link to="/consultation">Start 3-Month Journey</Link>
+                      <Link to="/contact">Start 3-Month Journey</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -487,10 +497,17 @@ function Coaching() {
                       <h3 className="text-2xl font-bold text-foreground mb-2 font-montserrat">
                         6-Month Experience
                       </h3>
-                      <p className="text-primary text-lg font-semibold">
+                      <p className="text-primary text-lg font-semibold mb-4">
                         For deep transformation and sustained alignment
                       </p>
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <span className="text-4xl font-bold text-foreground font-montserrat">
+                          ₦145,000
+                        </span>
+                      </div>
                     </div>
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-6"></div>
 
                     <div className="space-y-4 mb-8">
                       <div className="flex items-center">
@@ -539,7 +556,7 @@ function Coaching() {
                       asChild
                       className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105"
                     >
-                      <Link to="/consultation">Start 6-Month Journey</Link>
+                      <Link to="/contact">Start 6-Month Journey</Link>
                     </Button>
                   </CardContent>
                 </Card>
