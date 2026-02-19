@@ -518,7 +518,7 @@ function Community() {
                 size="lg"
                 className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-white"
               >
-                <Link to="/consultation">Join The Quake Core</Link>
+                <Link to="/contact">Join The Quake Core</Link>
               </Button>
               <Button
                 asChild

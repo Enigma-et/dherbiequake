@@ -6,10 +6,12 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { ErrorBoundary } from '../components/ErrorBoundary'
 import { BackToTop } from '../components/BackToTop'
+import { ScrollToTop } from '../components/ScrollToTop'
 
 export const Route = createRootRoute({
   component: () => (
     <ErrorBoundary>
+      <ScrollToTop />
       <Header />
       <main className="page-transition" role="main">
         <Outlet />
